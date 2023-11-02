@@ -1,0 +1,66 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_tugas_pas/models/user.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:option_result/option_result.dart';
+
+class LoginController extends GetxController {
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void handeLogin() async {
+    if (usernameController.text.trim().isEmpty ||
+        passwordController.text.trim().isEmpty) {
+      Get.snackbar("USER ERROR", "Username or password can not be empty");
+      return;
+    }
+
+    var loginResponse = (await sendLoginCredentials()).unwrapOr(
+        http.Response("{\"message\": \"No network connection\"}", 600));
+    var handledResponse = await handleLoginResponse(loginResponse);
+
+    switch (handledResponse) {
+      case Ok(value: User user):
+        {
+          debugPrint("todo: Implement persistent login");
+          debugPrint(user.toString());
+          Get.snackbar("DEBUG", "Login success");
+          Get.toNamed("/home");
+        }
+      case Err(value: String errorMsg):
+        {
+          Get.snackbar("LOGIN ERROR", errorMsg);
+        }
+    }
+  }
+
+  Future<Result<http.Response, Exception>> sendLoginCredentials() async {
+    try {
+      var res = await http.post(Uri.parse("https://dummyjson.com/auth/login"),
+          headers: <String, String>{"Content-Type": "application/json"},
+          body: jsonEncode(<String, String>{
+            "username": usernameController.text,
+            "password": passwordController.text
+          }));
+      return Ok(res);
+    } catch (e) {
+      // print(e);
+      debugPrint(e.toString());
+      return Err(e as Exception);
+    }
+  }
+
+  Future<Result<User, String>> handleLoginResponse(http.Response res) async {
+    if (res.statusCode >= 200 && res.statusCode < 300) {
+      Map<String, dynamic> body = jsonDecode(res.body) as Map<String, dynamic>;
+      User user = User.fromJson(body);
+      return Ok(user);
+    } else {
+      Map<String, dynamic> body = jsonDecode(res.body) as Map<String, dynamic>;
+      return Err(
+          "${res.statusCode}: ${(body['message'] as String?) ?? 'null'}");
+    }
+  }
+}
