@@ -27,7 +27,7 @@ class LoginController extends GetxController {
           debugPrint("todo: Implement persistent login");
           debugPrint(user.toString());
           Get.snackbar("DEBUG", "Login success");
-          Get.toNamed("/home");
+          Get.offNamed("/home");
         }
       case Err(value: String errorMsg):
         {
