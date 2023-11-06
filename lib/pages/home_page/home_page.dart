@@ -13,7 +13,12 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: TextField(),
+        title: TextField(
+          controller: controller.searchController,
+          focusNode: controller.searchFocus,
+          onTap: controller.onSearchTap,
+          onTapOutside: controller.onSearchTapOutside,
+        ),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
         ],
