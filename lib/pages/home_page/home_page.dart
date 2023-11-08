@@ -20,7 +20,9 @@ class HomePage extends GetView<HomeController> {
           onTapOutside: controller.onSearchTapOutside,
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
+          IconButton(
+              onPressed: controller.onNotifButtonTap,
+              icon: Icon(Icons.notifications))
         ],
       ),
       body: Obx(

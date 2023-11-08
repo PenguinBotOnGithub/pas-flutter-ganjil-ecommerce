@@ -17,4 +17,8 @@ class HomeController extends GetxController {
   void onNavTap(int val) {
     navIndex.value = val;
   }
+
+  void onNotifButtonTap() {
+    Get.toNamed("/notifications");
+  }
 }
