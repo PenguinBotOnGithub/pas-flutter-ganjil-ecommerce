@@ -25,10 +25,6 @@ class _LoginComponentState extends State<LoginComponent> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: SizeConfig.screenHeight * 0.4,
-                  ),
-                  SizedBox(height: SizeConfig.screenHeight * 0.4,
-                  ),
                   SimpleShadow(
                     child: Image.asset(
                       "assets/images/Login.png",
@@ -59,9 +55,10 @@ class _LoginComponentState extends State<LoginComponent> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 34,),
+                  SizedBox(
+                    height: 34,
+                  ),
                   LoginForm(),
-
                 ],
               ),
             ),
