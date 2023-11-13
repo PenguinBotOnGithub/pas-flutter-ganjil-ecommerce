@@ -7,8 +7,30 @@ import 'package:http/http.dart' as http;
 import 'package:option_result/option_result.dart';
 
 class LoginController extends GetxController {
+  // UI related variables
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final usernameFocus = FocusNode();
+  final passwordFocus = FocusNode();
+  final rememberMe = false.obs;
+
+  void onTapUsernameFocus() {
+    passwordFocus.unfocus();
+    usernameFocus.requestFocus();
+  }
+
+  void onTapOutsideUsernameFocus(e) => usernameFocus.unfocus();
+
+  void onTapPasswordFocus() {
+    usernameFocus.unfocus();
+    passwordFocus.requestFocus();
+  }
+
+  void onTapOutsidePasswordFocus(e) => passwordFocus.unfocus();
+
+  void handleRememberCheck(bool? val) {
+    rememberMe.value = val!;
+  }
 
   void handeLogin() async {
     if (usernameController.text.trim().isEmpty ||

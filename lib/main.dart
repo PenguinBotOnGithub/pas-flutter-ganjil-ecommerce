@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/bindings/login_bindings.dart';
 import 'package:flutter_tugas_pas/pages/home_page.dart';
-import 'package:flutter_tugas_pas/pages/login/login_page.dart';
+import 'package:flutter_tugas_pas/pages/login_page/login_page.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -19,13 +19,12 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: "SFProDisplay",
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          color: Colors.white,
-          elevation: 0,
-        )
-      ),
+          fontFamily: "SFProDisplay",
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: AppBarTheme(
+            color: Colors.white,
+            elevation: 0,
+          )),
       initialRoute: "/login",
       initialBinding: LoginBindings(),
       getPages: [
