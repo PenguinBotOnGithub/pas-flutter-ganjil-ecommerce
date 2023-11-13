@@ -30,6 +30,7 @@ class DefaultButtonCustomeColor extends StatelessWidget {
           text!,
           style: TextStyle(
             fontSize: getProportionateScreenWidth(18),
+            fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
         ),

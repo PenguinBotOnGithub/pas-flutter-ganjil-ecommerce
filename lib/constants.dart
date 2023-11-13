@@ -6,7 +6,6 @@ import '../size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF5500);
 const kSecondaryColor = Color(0xFF4D0A8E);
-const kThirdColor = Color(0xFFD8D2CB);
 const kFourthColor = Color(0xFFEEEEEE);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kColorTeal = Color(0xFF008080);
@@ -21,7 +20,7 @@ const mBackgroundColor = Color(0xFFF7F6F4);
 const mBlueColor = Color(0xFF2C53B1);
 const mGreyColor = Color(0xFFCFCFCF);
 const mTitleColor = Color(0xFF23374D);
-const mSubtitleColor = Color(0xFF8E8E8E);
+const mSubtitleColor = Color(0xFF808080);
 const mBorderColor = Color(0xFFE8E8F3);
 const mFillColor = Color(0xFFFFFFFF);
 const mCardTitleColor = Color(0xFF2E4ECF);
