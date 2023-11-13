@@ -35,6 +35,7 @@ class LoginController extends GetxController {
   void handeLogin() async {
     if (usernameController.text.trim().isEmpty ||
         passwordController.text.trim().isEmpty) {
+      Get.closeAllSnackbars();
       Get.snackbar("USER ERROR", "Username or password can not be empty");
       return;
     }
@@ -48,11 +49,13 @@ class LoginController extends GetxController {
         {
           debugPrint("todo: Implement persistent login");
           debugPrint(user.toString());
+          Get.closeAllSnackbars();
           Get.snackbar("DEBUG", "Login success");
           Get.toNamed("/home");
         }
       case Err(value: String errorMsg):
         {
+          Get.closeAllSnackbars();
           Get.snackbar("LOGIN ERROR", errorMsg);
         }
     }
