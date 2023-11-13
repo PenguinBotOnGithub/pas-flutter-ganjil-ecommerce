@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/constants.dart';
-import 'package:flutter_tugas_pas/pages/login/components/login_form.dart';
+import 'package:flutter_tugas_pas/pages/login_page/components/login_form.dart';
 import 'package:flutter_tugas_pas/size_config.dart';
 
 class LoginComponent extends StatefulWidget {
@@ -48,7 +48,9 @@ class _LoginComponentState extends State<LoginComponent> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 34,),
+                  SizedBox(
+                    height: 34,
+                  ),
                   LoginForm(),
                 ],
               ),

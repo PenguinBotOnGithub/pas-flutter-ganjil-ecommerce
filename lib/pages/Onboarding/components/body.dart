@@ -17,15 +17,15 @@ class _BodyState extends State<Body> {
   List<Map<String, String>> onboardingData = [
     {
       "text": "Welcome to ELECTOKO, let's go shopping!",
-      'image': 'assets/images/Onboarding_1'
+      'image': 'assets/images/Onboarding_1.png'
     },
     {
       "text": "We offer the lower price and good quality",
-      'image': 'assets/images/Onboarding_2'
+      'image': 'assets/images/Onboarding_2.png'
     },
     {
       "text": "Our application are user friendly",
-      'image': 'assets/images/Onboarding_3'
+      'image': 'assets/images/Onboarding_3.png'
     },
   ];
 
@@ -43,11 +43,10 @@ class _BodyState extends State<Body> {
                 });
               },
               itemCount: onboardingData.length,
-              itemBuilder: (context, index) =>
-                  OnboardingContent(
-                    text: onboardingData[index]['text']!,
-                    image: onboardingData[index]["image"]!,
-                  ),
+              itemBuilder: (context, index) => OnboardingContent(
+                text: onboardingData[index]['text']!,
+                image: onboardingData[index]["image"]!,
+              ),
             ),
           ),
           Expanded(
@@ -63,22 +62,23 @@ class _BodyState extends State<Body> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
                       onboardingData.length,
-                          (index) =>
-                          AnimatedContainer(
-                            duration: kAnimationDuration,
-                            margin: EdgeInsets.only(right: 5),
-                            height: 6,
-                            width: currentPage == index ? 20 : 6,
-                            decoration: BoxDecoration(
-                              color: currentPage == index
-                                  ? kSecondaryColor
-                                  : mGreyColor,
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                          ),
+                      (index) => AnimatedContainer(
+                        duration: kAnimationDuration,
+                        margin: EdgeInsets.only(right: 5),
+                        height: 6,
+                        width: currentPage == index ? 20 : 6,
+                        decoration: BoxDecoration(
+                          color: currentPage == index
+                              ? kSecondaryColor
+                              : mGreyColor,
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                      ),
                     ),
                   ),
-                  Spacer(flex: 3,),
+                  Spacer(
+                    flex: 3,
+                  ),
                   SizedBox(
                     width: double.infinity,
                     height: getProportionateScreenHeight(56),
@@ -98,5 +98,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-
-
