@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/bindings/login_bindings.dart';
+import 'package:flutter_tugas_pas/constants.dart';
 import 'package:flutter_tugas_pas/pages/home_page.dart';
 import 'package:flutter_tugas_pas/pages/login/login_page.dart';
 import 'package:get/get.dart';
@@ -20,9 +21,9 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "SFProDisplay",
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: mBackgroundColor,
         appBarTheme: AppBarTheme(
-          color: Colors.white,
+          color: mBackgroundColor,
           elevation: 0,
         )
       ),

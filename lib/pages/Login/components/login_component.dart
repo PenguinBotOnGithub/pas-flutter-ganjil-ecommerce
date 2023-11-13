@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/constants.dart';
-import 'package:flutter_tugas_pas/pages/login/components/LoginForm.dart';
+import 'package:flutter_tugas_pas/pages/login/components/login_form.dart';
 import 'package:flutter_tugas_pas/size_config.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class LoginComponent extends StatefulWidget {
-  const LoginComponent({super.key});
+  const LoginComponent({Key? key}) : super(key: key);
 
   @override
   State<LoginComponent> createState() => _LoginComponentState();
@@ -25,20 +24,10 @@ class _LoginComponentState extends State<LoginComponent> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(height: SizeConfig.screenHeight * 0.4,
-                  ),
-                  SizedBox(height: SizeConfig.screenHeight * 0.4,
-                  ),
-                  SimpleShadow(
-                    child: Image.asset(
-                      "assets/images/Login.png",
-                      height: 186,
-                      width: 200,
-                    ),
-                    opacity: 0.5,
-                    color: kPrimaryColor,
-                    offset: Offset(5, 5),
-                    sigma: 2,
+                  Image.asset(
+                    "assets/images/Login.png",
+                    height: 186,
+                    width: 200,
                   ),
                   SizedBox(height: 20),
                   Padding(
@@ -61,7 +50,6 @@ class _LoginComponentState extends State<LoginComponent> {
                   ),
                   SizedBox(height: 34,),
                   LoginForm(),
-
                 ],
               ),
             ),

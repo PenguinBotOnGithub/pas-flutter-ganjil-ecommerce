@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF5500);
-const kSecondaryColor = Color(0xFFF4BD46);
+const kSecondaryColor = Color(0xFF4D0A8E);
 const kThirdColor = Color(0xFFD8D2CB);
 const kFourthColor = Color(0xFFEEEEEE);
 const kPrimaryLightColor = Color(0xFFFFECDF);
@@ -17,7 +17,7 @@ const kColorGreen = Color(0xFF00FCA6);
 const kColorRedSlow = Color(0xFFf55f60);
 const kColorYellow = Color(0xFFFFC654);
 
-const mBackgroundColor = Color(0xFFFAFAFA);
+const mBackgroundColor = Color(0xFFF7F6F4);
 const mBlueColor = Color(0xFF2C53B1);
 const mGreyColor = Color(0xFFCFCFCF);
 const mTitleColor = Color(0xFF23374D);

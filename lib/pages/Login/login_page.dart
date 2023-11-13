@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tugas_pas/pages/login/components/LoginComponent.dart';
+import 'package:flutter_tugas_pas/pages/login/components/login_component.dart';
 import 'package:flutter_tugas_pas/size_config.dart';
 
 class LoginPage extends StatelessWidget {
