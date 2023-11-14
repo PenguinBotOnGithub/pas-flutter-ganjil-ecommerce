@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../constants.dart';
-import '../../../size_config.dart';
+import 'package:flutter_tugas_pas/widgets/constants.dart';
+import 'package:flutter_tugas_pas/widgets/size_config.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({

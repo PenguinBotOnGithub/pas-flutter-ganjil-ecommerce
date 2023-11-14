@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../size_config.dart';
 
-class DefaultButtonCustomeColor extends StatelessWidget {
-  const DefaultButtonCustomeColor({
+class DefaultButtonCustomColor extends StatelessWidget {
+  const DefaultButtonCustomColor({
     Key? key,
     this.text,
     this.color,
@@ -21,7 +21,7 @@ class DefaultButtonCustomeColor extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           primary: Colors.white,
           backgroundColor: color,
         ),
@@ -38,4 +38,3 @@ class DefaultButtonCustomeColor extends StatelessWidget {
     );
   }
 }
-

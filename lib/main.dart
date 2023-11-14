@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/bindings/login_bindings.dart';
-import 'package:flutter_tugas_pas/constants.dart';
 import 'package:flutter_tugas_pas/pages/Onboarding/onboarding_page.dart';
 import 'package:flutter_tugas_pas/pages/home_page.dart';
 import 'package:flutter_tugas_pas/pages/login_page/login_page.dart';
+import 'package:flutter_tugas_pas/pages/login_page/login_page.dart';
+import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

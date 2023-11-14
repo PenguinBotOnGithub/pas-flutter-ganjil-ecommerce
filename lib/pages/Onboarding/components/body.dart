@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tugas_pas/components/default_button_custom_color.dart';
-import 'package:flutter_tugas_pas/constants.dart';
-import 'package:flutter_tugas_pas/size_config.dart';
+import 'package:flutter_tugas_pas/widgets/components/default_button_custom_color.dart';
+import 'package:flutter_tugas_pas/widgets/constants.dart';
+import 'package:flutter_tugas_pas/widgets/size_config.dart';
 
 import 'onboarding_content.dart';
 
@@ -68,9 +68,8 @@ class _BodyState extends State<Body> {
                         height: 6,
                         width: currentPage == index ? 20 : 6,
                         decoration: BoxDecoration(
-                          color: currentPage == index
-                              ? kPrimaryColor
-                              : mGreyColor,
+                          color:
+                              currentPage == index ? kPrimaryColor : mGreyColor,
                           borderRadius: BorderRadius.circular(3),
                         ),
                       ),
@@ -82,7 +81,7 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     width: double.infinity,
                     height: getProportionateScreenHeight(56),
-                    child: DefaultButtonCustomeColor(
+                    child: DefaultButtonCustomColor(
                       color: kPrimaryColor,
                       text: "Login",
                       press: () {},

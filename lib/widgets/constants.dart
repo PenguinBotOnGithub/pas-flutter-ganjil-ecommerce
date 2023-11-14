@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../size_config.dart';
+import 'size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF5500);
 const kSecondaryColor = Color(0xFF4D0A8E);
@@ -47,7 +47,7 @@ const defaultDuration = Duration(milliseconds: 250);
 
 // Form Error
 final RegExp emailValidatorRegExp =
-RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String kUsernameNullError = "Please Enter your username";
 const String kKategoryNullError = "Please Enter your category";
 const String kJudulBahanyNullError = "Judul bahan ajar tidak boleh kosong";
@@ -66,7 +66,7 @@ const String kAddressNullError = "Please Enter your address";
 final otpInputDecoration = InputDecoration(
   fillColor: kPrimaryColor,
   contentPadding:
-  EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
   border: outlineInputBorder(),
   focusedBorder: outlineInputBorder(),
   enabledBorder: outlineInputBorder(),
@@ -154,7 +154,6 @@ var mTravlogContentStyle = GoogleFonts.inter(
 var mTravlogPlaceStyle = GoogleFonts.inter(
     fontSize: 10, fontWeight: FontWeight.w500, color: mBlueColor);
 
-
 class HexColor extends Color {
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 
@@ -166,7 +165,6 @@ class HexColor extends Color {
     return int.parse(hexColor, radix: 16);
   }
 }
-
 
 class AlwaysDisabledFocusNode extends FocusNode {
   @override
