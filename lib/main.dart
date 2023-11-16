@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tugas_pas/bindings/home_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/login_bindings.dart';
-import 'package:flutter_tugas_pas/pages/Onboarding/onboarding_page.dart';
+import 'package:flutter_tugas_pas/bindings/onboarding_bindings.dart';
+import 'package:flutter_tugas_pas/pages/onboarding_page.dart';
 import 'package:flutter_tugas_pas/pages/home_page.dart';
-import 'package:flutter_tugas_pas/pages/login_page.dart';
 import 'package:flutter_tugas_pas/pages/login_page.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:get/get.dart';
@@ -29,11 +30,15 @@ class MainApp extends StatelessWidget {
             elevation: 0,
           )),
       initialRoute: "/onboarding",
-      // initialBinding: LoginBindings(),
+      initialBinding: OnboardingBindings(),
       getPages: [
-        GetPage(name: "/onboarding", page: () => OnboardingPage()),
-        GetPage(name: "/login", page: () => LoginPage()),
-        GetPage(name: "/home", page: () => HomePage()),
+        GetPage(
+            name: "/onboarding",
+            page: () => OnboardingPage(),
+            binding: OnboardingBindings()),
+        GetPage(
+            name: "/login", page: () => LoginPage(), binding: LoginBindings()),
+        GetPage(name: "/home", page: () => HomePage(), binding: HomeBindings()),
       ],
     );
   }
