@@ -71,12 +71,12 @@ class StyledTextField extends StatelessWidget {
       keyboardType: TextInputType.text,
       style: mTitleStyle,
       decoration: InputDecoration(
-        labelText: label,
+        // labelText: label,
         hintText: hint,
         labelStyle: TextStyle(
           color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor,
         ),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        // floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSuffixIcon(
           svgIcon: svgSuffixIcon,
         ),
@@ -124,12 +124,12 @@ class _StyledTextFormField extends StyledTextField {
       keyboardType: TextInputType.text,
       style: mTitleStyle,
       decoration: InputDecoration(
-        labelText: label,
+        // labelText: label,
         hintText: hint,
         labelStyle: TextStyle(
           color: focusNode.hasFocus ? mSubtitleColor : kPrimaryColor,
         ),
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        // floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSuffixIcon(
           svgIcon: svgSuffixIcon,
         ),
