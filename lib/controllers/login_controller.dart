@@ -51,7 +51,7 @@ class LoginController extends GetxController {
           debugPrint(user.toString());
           Get.closeAllSnackbars();
           Get.snackbar("DEBUG", "Login success");
-          Get.toNamed("/home");
+          Get.offNamed("/home");
         }
       case Err(value: String errorMsg):
         {
