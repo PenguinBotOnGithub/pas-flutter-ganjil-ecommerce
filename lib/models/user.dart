@@ -1,11 +1,24 @@
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'user.g.dart';
+
+@HiveType(typeId: 1)
 class User {
+  @HiveField(0)
   int id;
+  @HiveField(1)
   String username;
+  @HiveField(2)
   String email;
+  @HiveField(3)
   String firstName;
+  @HiveField(4)
   String lastName;
+  @HiveField(5)
   String gender;
-  late Uri image;
+  @HiveField(6)
+  Uri image;
+  @HiveField(7)
   String token;
 
   User(
