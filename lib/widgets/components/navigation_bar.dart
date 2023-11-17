@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_tugas_pas/pages/Home/home_page.dart';
-
 import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/widgets/enums.dart';
 
@@ -47,7 +45,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 onPressed: () {},
               ),
               IconButton(
-                icon: SvgPicture.asset("assets/icons/Heart_2.svg"),
+                icon: SvgPicture.asset("assets/icons/Heart.svg"),
                 onPressed: () {},
               ),
               IconButton(
