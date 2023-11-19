@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_tugas_pas/helpers/hive_manager.dart';
 import 'package:flutter_tugas_pas/models/user.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -50,7 +51,12 @@ class LoginController extends GetxController {
           debugPrint("todo: Implement persistent login");
           debugPrint(user.toString());
           Get.closeAllSnackbars();
-          Get.snackbar("DEBUG", "Login success");
+          Get.snackbar("DEBUG", "Login success",
+              snackPosition: SnackPosition.BOTTOM);
+          if (rememberMe.value) {
+            var hm = HiveManager();
+            hm.getDataBox.put(hm.loggedInUserKey, user);
+          }
           Get.offNamed("/home");
         }
       case Err(value: String errorMsg):
