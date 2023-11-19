@@ -53,11 +53,13 @@ class LoginController extends GetxController {
           Get.closeAllSnackbars();
           Get.snackbar("DEBUG", "Login success",
               snackPosition: SnackPosition.BOTTOM);
+          /* todo: FIX bug where logging in without rememberMe = true
+             causes null user returned when retrieving user from Hive */
           if (rememberMe.value) {
             var hm = HiveManager();
             hm.getDataBox.put(hm.loggedInUserKey, user);
           }
-          Get.offNamed("/home");
+          Get.offNamed("/detail");
         }
       case Err(value: String errorMsg):
         {
@@ -77,7 +79,6 @@ class LoginController extends GetxController {
           }));
       return Ok(res);
     } catch (e) {
-      // print(e);
       debugPrint(e.toString());
       return Err(e as Exception);
     }

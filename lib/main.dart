@@ -1,9 +1,11 @@
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_tugas_pas/bindings/detail_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/home_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/login_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/onboarding_bindings.dart';
 import 'package:flutter_tugas_pas/helpers/hive_manager.dart';
+import 'package:flutter_tugas_pas/pages/detail_page.dart';
 import 'package:flutter_tugas_pas/pages/login_page.dart';
 import 'package:flutter_tugas_pas/pages/onboarding_page.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
@@ -32,6 +34,7 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          useMaterial3: false,
           fontFamily: "SFProDisplay",
           scaffoldBackgroundColor: mBackgroundColor,
           appBarTheme: AppBarTheme(
@@ -49,7 +52,7 @@ class MainApp extends StatelessWidget {
                     bool showOnboarding = hm.getSettingsBox
                         .get(hm.onboardingKey, defaultValue: true);
                     if (user != null) {
-                      Get.offNamed("/home");
+                      Get.offNamed("/detail");
                     } else if (showOnboarding) {
                       Get.offNamed("/onboarding");
                     } else {
@@ -77,6 +80,10 @@ class MainApp extends StatelessWidget {
             name: "/onboarding",
             page: () => OnboardingPage(),
             binding: OnboardingBindings()),
+        GetPage(
+            name: "/detail",
+            page: () => DetailPage(),
+            binding: DetailBindings()),
       ],
     );
   }
