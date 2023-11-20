@@ -17,7 +17,7 @@ class User {
   @HiveField(5)
   String gender;
   @HiveField(6)
-  Uri image;
+  String image;
   @HiveField(7)
   String token;
 
@@ -39,7 +39,7 @@ class User {
         firstName: json["firstName"] as String,
         lastName: json["lastName"] as String,
         gender: json["gender"] as String,
-        image: Uri.parse(json["image"] as String),
+        image: json["image"] as String,
         token: json["token"] as String);
   }
 

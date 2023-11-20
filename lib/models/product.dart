@@ -40,15 +40,30 @@ class Product {
       required this.thumbnail,
       required this.images});
 
+  factory Product.zero() {
+    return Product(
+        id: 0,
+        title: "",
+        description: "",
+        price: 0,
+        discountPercentage: 0,
+        rating: 0,
+        stock: 0,
+        brand: "",
+        category: "",
+        thumbnail: "",
+        images: ["", "", ""]);
+  }
+
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-        id: json["id"] as int,
+        id: _ifDoubleToInt(json["id"]),
         title: json["title"] as String,
         description: json["description"] as String,
-        price: json["price"] as int,
-        discountPercentage: json["discountPercentage"] as double,
-        rating: json["rating"] as double,
-        stock: json["stock"] as int,
+        price: _ifDoubleToInt(json["price"]),
+        discountPercentage: _ifIntToDouble(json["discountPercentage"]),
+        rating: _ifIntToDouble(json["rating"]),
+        stock: _ifDoubleToInt(json["stock"]),
         brand: json["brand"] as String,
         category: json["category"] as String,
         thumbnail: json["thumbnail"] as String,
@@ -56,6 +71,25 @@ class Product {
             (json["images"] as List<dynamic>).map((e) => e as String).toList());
   }
 
+  // Workaround functions if Dart confuses int with double
+  // or vice versa and won't do implicit type casting
+  static double _ifIntToDouble(dynamic val) {
+    try {
+      return (val as double);
+    } catch (e) {
+      return (val as int).toDouble();
+    }
+  }
+
+  static int _ifDoubleToInt(dynamic val) {
+    try {
+      return (val as int);
+    } catch (e) {
+      return (val as double).round();
+    }
+  }
+
+  // For debugging purposes
   @override
   String toString() {
     return """

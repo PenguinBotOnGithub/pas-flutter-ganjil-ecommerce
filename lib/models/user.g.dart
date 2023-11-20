@@ -23,7 +23,7 @@ class UserAdapter extends TypeAdapter<User> {
       firstName: fields[3] as String,
       lastName: fields[4] as String,
       gender: fields[5] as String,
-      image: fields[6] as Uri,
+      image: fields[6] as String,
       token: fields[7] as String,
     );
   }

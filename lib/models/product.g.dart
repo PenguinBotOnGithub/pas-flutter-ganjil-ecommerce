@@ -26,8 +26,8 @@ class ProductAdapter extends TypeAdapter<Product> {
       stock: fields[6] as int,
       brand: fields[7] as String,
       category: fields[8] as String,
-      thumbnail: fields[9] as Uri,
-      images: (fields[10] as List).cast<Uri>(),
+      thumbnail: fields[9] as String,
+      images: (fields[10] as List).cast<String>(),
     );
   }
 
