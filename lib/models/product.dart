@@ -23,9 +23,9 @@ class Product {
   @HiveField(8)
   String category;
   @HiveField(9)
-  Uri thumbnail;
+  String thumbnail;
   @HiveField(10)
-  List<Uri> images;
+  List<String> images;
 
   Product(
       {required this.id,
@@ -51,9 +51,9 @@ class Product {
         stock: json["stock"] as int,
         brand: json["brand"] as String,
         category: json["category"] as String,
-        thumbnail: Uri.parse(json["thumbnail"] as String),
+        thumbnail: json["thumbnail"] as String,
         images:
-            (json["images"] as List<String>).map((e) => Uri.parse(e)).toList());
+            (json["images"] as List<dynamic>).map((e) => e as String).toList());
   }
 
   @override
