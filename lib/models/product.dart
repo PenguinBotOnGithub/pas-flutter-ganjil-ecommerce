@@ -43,16 +43,18 @@ class Product {
   factory Product.zero() {
     return Product(
         id: 0,
-        title: "",
-        description: "",
+        title: "null",
+        description: "null",
         price: 0,
         discountPercentage: 0,
         rating: 0,
         stock: 0,
-        brand: "",
-        category: "",
-        thumbnail: "",
-        images: ["", "", ""]);
+        brand: "null",
+        category: "null",
+        thumbnail: "null",
+        images: [
+          "https://res.cloudinary.com/teepublic/image/private/s--HDuBTUyf--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1446147587/production/designs/2905_2.jpg"
+        ]);
   }
 
   factory Product.fromJson(Map<String, dynamic> json) {
