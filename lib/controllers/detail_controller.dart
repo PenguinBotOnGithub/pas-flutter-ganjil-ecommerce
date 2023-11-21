@@ -38,7 +38,7 @@ class DetailController extends GetxController {
   @override
   onInit() async {
     super.onInit();
-    int id = 12;
+    int id = Get.arguments as int;
     switch (await getProductInfo(id)) {
       case Ok(value: Product p):
         {

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/controllers/home_controller.dart';
 import 'package:flutter_tugas_pas/pages/Home/components/body.dart';
+import 'package:flutter_tugas_pas/widgets/components/navigation_bar.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
-import 'package:flutter_tugas_pas/widgets/loading_state.dart';
+import 'package:flutter_tugas_pas/widgets/enums.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'package:get/get.dart';
-
-import '../../widgets/components/navigation_bar.dart';
-import '../../widgets/enums.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -24,6 +22,7 @@ class HomePage extends GetView<HomeController> {
               ),
             LoadState.complete => Body(
                 products: controller.products,
+                onProductTap: controller.onProductTap,
               ),
             LoadState.error => Center(
                 child: Column(

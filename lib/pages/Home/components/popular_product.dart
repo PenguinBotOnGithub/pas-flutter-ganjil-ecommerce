@@ -7,8 +7,10 @@ import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
   final List<Product> products;
+  final void Function(int) onProductTap;
 
-  const PopularProducts({super.key, required this.products});
+  const PopularProducts(
+      {super.key, required this.products, required this.onProductTap});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,10 @@ class PopularProducts extends StatelessWidget {
                 products.length,
                 (index) {
                   // if (demoProducts[index].isPopular)
-                  return ProductCard(product: products[index]);
+                  return ProductCard(
+                    product: products[index],
+                    onProductTap: onProductTap,
+                  );
 
                   /* return SizedBox
                       .shrink(); */ // here by default width and height is 0

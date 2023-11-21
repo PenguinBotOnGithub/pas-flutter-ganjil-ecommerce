@@ -9,9 +9,10 @@ import 'discount_banner.dart';
 import 'header.dart';
 
 class Body extends StatelessWidget {
-  List<Product> products;
+  final List<Product> products;
+  final void Function(int) onProductTap;
 
-  Body({super.key, required this.products});
+  const Body({super.key, required this.products, required this.onProductTap});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class Body extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(30)),
             PopularProducts(
               products: products,
+              onProductTap: onProductTap,
             ),
             SizedBox(height: getProportionateScreenWidth(30))
           ],
