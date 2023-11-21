@@ -19,6 +19,7 @@ const kColorYellow = Color(0xFFFFC654);
 const mBackgroundColor = Color(0xFFF7F6F4);
 const mBlueColor = Color(0xFF2C53B1);
 const mGreyColor = Color(0xFFCFCFCF);
+const mLightGreyColor = Color.fromARGB(255, 233, 233, 233);
 const mDarkGreyColor = Color.fromARGB(255, 184, 184, 184);
 const mTitleColor = Color(0xFF23374D);
 const mSubtitleColor = Color(0xFF808080);
@@ -161,7 +162,7 @@ var mTitleStyleProductTitle = GoogleFonts.inter(
     fontWeight: FontWeight.w600, color: mTitleColor, fontSize: 24);
 
 var mStyleDescription = GoogleFonts.inter(
-    fontWeight: FontWeight.w500, color: mGreyColor, fontSize: 18);
+    fontWeight: FontWeight.w400, color: mGreyColor, fontSize: 16);
 
 var mStylePrice = GoogleFonts.inter(
     fontWeight: FontWeight.w500, color: kPrimaryColor, fontSize: 20);

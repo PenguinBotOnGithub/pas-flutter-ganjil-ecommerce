@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/controllers/detail_controller.dart';
+import 'package:flutter_tugas_pas/widgets/components/default_button_custom_color.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/widgets/enums.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
@@ -15,7 +16,7 @@ class DetailPage extends GetView<DetailController> {
       ),
       body: SafeArea(
           child: ColoredBox(
-        color: mGreyColor,
+        color: mLightGreyColor,
         child: Obx(() => switch (controller.fetchLoad.value) {
               LoadState.complete => buildDetailPage(),
               LoadState.loading => buildLoadingPage(),
@@ -97,7 +98,11 @@ class DetailPage extends GetView<DetailController> {
                 style: TextStyle(color: mGreyColor),
               ),
               Spacer(),
-              Icon(Icons.star),
+              Icon(
+                Icons.star,
+                color: kColorYellow,
+                size: getProportionateScreenWidth(24),
+              ),
               Text("${controller.product.value.rating}")
             ],
           ),
@@ -130,7 +135,7 @@ class DetailPage extends GetView<DetailController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: getProportionateScreenWidth(100),
+                width: getProportionateScreenWidth(105),
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(36),
@@ -152,8 +157,12 @@ class DetailPage extends GetView<DetailController> {
                 width: 20,
               ),
               Expanded(
-                child: ElevatedButton(
-                    onPressed: () {}, child: Text("Add To Cart")),
+                child: DefaultButtonCustomColor(
+                  borderRadius: 36,
+                  text: "Add To Cart",
+                  color: kPrimaryColor,
+                  press: () {},
+                ),
               ),
             ],
           )
