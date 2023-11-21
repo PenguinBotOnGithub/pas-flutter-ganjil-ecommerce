@@ -28,8 +28,9 @@ class DetailController extends GetxController {
       amount.value > 1 ? amount.value-- : amount.value = amount.value;
 
   void onWishlistTap() {
+    if (fetchLoad.value != LoadState.complete) return;
     if (isInWishlist.value) {
-      wishlist.remove(product.value);
+      wishlist.removeWhere((e) => e.id == product.value.id);
       hm.getDataBox.put(hm.wishlistKey, wishlist);
       isInWishlist.value = !isInWishlist.value;
     } else {
@@ -55,7 +56,7 @@ class DetailController extends GetxController {
     switch (await getProductInfo(id)) {
       case Ok(value: Product p):
         {
-          debugPrint(p.toString());
+          // debugPrint(p.toString());
           product.value = p;
           fetchLoad.value = LoadState.complete;
         }
@@ -67,9 +68,14 @@ class DetailController extends GetxController {
           fetchLoad.value = LoadState.error;
         }
     }
-    wishlist.value =
-        hm.getDataBox.get(hm.wishlistKey, defaultValue: <Product>[]);
-    isInWishlist.value = wishlist.contains(product.value);
+    wishlist.value = (hm.getDataBox
+            .get(hm.wishlistKey, defaultValue: <Product>[]) as List<dynamic>)
+        .map((e) => e as Product)
+        .toList();
+    debugPrint(wishlist.toString());
+    wishlist.forEach(
+        (p) => p.id == product.value.id ? isInWishlist.value = true : null);
+    debugPrint(isInWishlist.value.toString());
   }
 
   Future<Result<Product, String>> getProductInfo(int id) async {
@@ -81,7 +87,7 @@ class DetailController extends GetxController {
             "Authorization": "Bearer ${user.token}",
             "Content-Type": "application/json"
           });
-      debugPrint(res.body);
+      // debugPrint(res.body);
       return Ok(Product.fromJson(jsonDecode(res.body)));
     } catch (e) {
       return Err(e.toString());
