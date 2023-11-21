@@ -23,16 +23,21 @@ class HomeController extends GetxController {
     super.onInit();
     products = switch (await getProductList()) {
       Ok(value: var pl) => pl,
-      Err(value: var e) => [],
+      Err(value: var e) => handleFetchError(e),
     };
     loadState.value = LoadState.complete;
+  }
+
+  List<Product> handleFetchError(Exception e) {
+    Get.snackbar("ERROR", e.toString());
+    return [];
   }
 
   Future<Result<List<Product>, Exception>> getProductList() async {
     User user = hm.getDataBox.get(hm.loggedInUserKey);
     try {
       http.Response res = await http.get(
-          Uri.parse("https://dummyjson.com/products"),
+          Uri.parse("https://dummyjson.com/products/?limit=10"),
           headers: <String, String>{"Authentication": "Bearer ${user.token}"});
       var handledProducts =
           handleJsonList(jsonDecode(res.body) as Map<String, dynamic>);

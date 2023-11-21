@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/controllers/home_controller.dart';
 import 'package:flutter_tugas_pas/pages/Home/components/body.dart';
+import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/widgets/loading_state.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'package:get/get.dart';
@@ -17,9 +18,13 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       body: Obx(() => switch (controller.loadState.value) {
             LoadState.loading => Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: kPrimaryColor,
+                ),
               ),
-            LoadState.complete => Body(),
+            LoadState.complete => Body(
+                products: controller.products,
+              ),
             LoadState.error => Center(
                 child: Column(
                   children: [

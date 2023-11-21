@@ -112,7 +112,7 @@ class Product {
   Product(
     id: 1,
     images: [
-      "assets/images/Stik_ps4",
+      "assets/images/Stik_ps4.png",
     ],
     colors: [
       Colors.white,

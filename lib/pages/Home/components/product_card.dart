@@ -37,7 +37,14 @@ class ProductCard extends StatelessWidget {
                   ),
                   child: Hero(
                     tag: product.id.toString(),
-                    child: Image.asset(product.thumbnail),
+                    child: Image.network(
+                      product.thumbnail,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, obj, trace) => Icon(
+                        Icons.error,
+                        size: getProportionateScreenWidth(55),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -58,7 +65,7 @@ class ProductCard extends StatelessWidget {
                       color: kPrimaryColor,
                     ),
                   ),
-                  InkWell(
+                  /* InkWell(
                     borderRadius: BorderRadius.circular(50),
                     onTap: () {},
                     child: Container(
@@ -80,7 +87,7 @@ class ProductCard extends StatelessWidget {
                             Color(0xFFDBDEE4),
                       ),
                     ),
-                  ),
+                  ), */
                 ],
               )
             ],
