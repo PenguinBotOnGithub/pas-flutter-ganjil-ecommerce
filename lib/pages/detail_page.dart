@@ -15,7 +15,12 @@ class DetailPage extends GetView<DetailController> {
         forceMaterialTransparency: true,
         backgroundColor: Colors.transparent,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+          IconButton(
+              onPressed: controller.onWishlistTap,
+              icon: Obx(() => Icon(
+                    Icons.favorite,
+                    color: controller.isInWishlist.value ? kColorRedSlow : null,
+                  ))),
           IconButton(onPressed: () {}, icon: Icon(Icons.share)),
         ],
         iconTheme: IconThemeData(color: mGreyColor),

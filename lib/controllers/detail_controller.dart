@@ -15,15 +15,29 @@ class DetailController extends GetxController {
 
   Rx<LoadState> fetchLoad = LoadState.loading.obs;
   RxInt imageCarouselPage = 0.obs;
+  RxList<Product> wishlist = <Product>[].obs;
 
   Rx<Product> product = Product.zero().obs;
   RxString error = "".obs;
   RxInt amount = 1.obs;
   var imagePageController = PageController();
+  RxBool isInWishlist = false.obs;
 
   void onAddTap() => amount.value++;
   void onReduceTap() =>
       amount.value > 1 ? amount.value-- : amount.value = amount.value;
+
+  void onWishlistTap() {
+    if (isInWishlist.value) {
+      wishlist.remove(product.value);
+      hm.getDataBox.put(hm.wishlistKey, wishlist);
+      isInWishlist.value = !isInWishlist.value;
+    } else {
+      wishlist.add(product.value);
+      hm.getDataBox.put(hm.wishlistKey, wishlist);
+      isInWishlist.value = !isInWishlist.value;
+    }
+  }
 
   void onImageCarouselPageChanged(int val) {
     imageCarouselPage.value = val;
@@ -53,6 +67,9 @@ class DetailController extends GetxController {
           fetchLoad.value = LoadState.error;
         }
     }
+    wishlist.value =
+        hm.getDataBox.get(hm.wishlistKey, defaultValue: <Product>[]);
+    isInWishlist.value = wishlist.contains(product.value);
   }
 
   Future<Result<Product, String>> getProductInfo(int id) async {
