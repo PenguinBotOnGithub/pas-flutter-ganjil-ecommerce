@@ -70,8 +70,7 @@ class DetailController extends GetxController {
     }
     wishlist.value = (hm.getDataBox
             .get(hm.wishlistKey, defaultValue: <Product>[]) as List<dynamic>)
-        .map((e) => e as Product)
-        .toList();
+        .cast();
     debugPrint(wishlist.toString());
     wishlist.forEach(
         (p) => p.id == product.value.id ? isInWishlist.value = true : null);
