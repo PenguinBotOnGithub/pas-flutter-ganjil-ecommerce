@@ -13,6 +13,12 @@ class DetailPage extends GetView<DetailController> {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.share)),
+        ],
+        iconTheme: IconThemeData(color: mGreyColor),
       ),
       body: SafeArea(
           child: ColoredBox(
