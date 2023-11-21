@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/controllers/detail_controller.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
+import 'package:flutter_tugas_pas/widgets/enums.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'package:get/get.dart';
 

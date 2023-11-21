@@ -5,11 +5,10 @@ import 'package:flutter_tugas_pas/helpers/hive_manager.dart';
 import 'package:flutter_tugas_pas/models/product.dart';
 import 'package:flutter_tugas_pas/models/user.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
+import 'package:flutter_tugas_pas/widgets/enums.dart';
 import 'package:get/get.dart';
 import 'package:option_result/option_result.dart';
 import 'package:http/http.dart' as http;
-
-enum LoadState { loading, complete, error }
 
 class DetailController extends GetxController {
   var hm = HiveManager();
