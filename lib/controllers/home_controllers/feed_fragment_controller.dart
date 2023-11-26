@@ -13,8 +13,6 @@ class FeedFragmentController extends GetxController {
   var hm = HiveManager();
   List<Product> products = <Product>[].obs;
 
-  final searchController = TextEditingController();
-  final searchFocus = FocusNode();
   Rx<LoadState> loadState = LoadState.loading.obs;
 
   @override
@@ -59,13 +57,5 @@ class FeedFragmentController extends GetxController {
         mapList.map((e) => Product.fromJson(e)).toList();
     debugPrint(handledList.toString());
     return handledList;
-  }
-
-  void onSearchTap() {
-    searchFocus.requestFocus();
-  }
-
-  void onSearchTapOutside(PointerDownEvent event) {
-    searchFocus.unfocus();
   }
 }

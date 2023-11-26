@@ -17,7 +17,7 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SearchField(),
+          // SearchField(),
           IconBtnWithCounter(
             svgSrc: "assets/icons/Cart.svg",
             press: () => {},
