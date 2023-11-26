@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';

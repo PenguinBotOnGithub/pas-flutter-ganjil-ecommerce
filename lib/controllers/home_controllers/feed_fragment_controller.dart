@@ -6,16 +6,15 @@ import 'package:flutter_tugas_pas/models/product.dart';
 import 'package:flutter_tugas_pas/models/user.dart';
 import 'package:flutter_tugas_pas/widgets/enums.dart';
 import 'package:get/get.dart';
-import 'package:option_result/result.dart';
+import 'package:option_result/option_result.dart';
 import 'package:http/http.dart' as http;
 
-class HomeController extends GetxController {
+class FeedFragmentController extends GetxController {
   var hm = HiveManager();
   List<Product> products = <Product>[].obs;
 
   final searchController = TextEditingController();
   final searchFocus = FocusNode();
-  final navIndex = 0.obs;
   Rx<LoadState> loadState = LoadState.loading.obs;
 
   @override
@@ -68,13 +67,5 @@ class HomeController extends GetxController {
 
   void onSearchTapOutside(PointerDownEvent event) {
     searchFocus.unfocus();
-  }
-
-  void onNavTap(int val) {
-    navIndex.value = val;
-  }
-
-  void onNotifButtonTap() {
-    Get.toNamed("/notifications");
   }
 }
