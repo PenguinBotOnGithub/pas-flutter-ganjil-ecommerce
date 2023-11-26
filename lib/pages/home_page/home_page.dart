@@ -6,6 +6,7 @@ import 'package:flutter_tugas_pas/pages/home_page/fragments/feed_fragment/compon
 import 'package:flutter_tugas_pas/pages/home_page/fragments/feed_fragment/components/search_field.dart';
 import 'package:flutter_tugas_pas/pages/home_page/fragments/wishlist_fragment.dart';
 import 'package:flutter_tugas_pas/pages/home_page/fragments/feed_fragment/feed_fragment.dart';
+import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'package:get/get.dart';
 
@@ -55,6 +56,7 @@ class HomePage extends GetView<HomeController> {
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
           useLegacyColorScheme: false,
+          selectedItemColor: kPrimaryColor,
           currentIndex: controller.navIndex.value,
           onTap: controller.onNavTap,
           items: [
