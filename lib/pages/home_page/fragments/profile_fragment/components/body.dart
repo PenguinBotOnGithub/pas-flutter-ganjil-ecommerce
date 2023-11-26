@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tugas_pas/controllers/home_controllers/profile_fragment_controller.dart';
+import 'package:get/get.dart';
 
 import 'profile_menu.dart';
 import 'profile_pic.dart';
 
 class Body extends StatelessWidget {
+  final ProfileFragmentController controller;
+
+  const Body({super.key, required this.controller});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
-          ProfilePic(),
+          Obx(
+            () => ProfilePic(
+              pfpImage: controller.userPfp.value,
+            ),
+          ),
           SizedBox(height: 20),
           ProfileMenu(
             text: "My Account",
@@ -35,7 +45,7 @@ class Body extends StatelessWidget {
           ProfileMenu(
             text: "Log Out",
             icon: "assets/icons/Log out.svg",
-            press: () {},
+            press: controller.onLogoutTap,
           ),
         ],
       ),

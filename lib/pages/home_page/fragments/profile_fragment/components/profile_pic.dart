@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfilePic extends StatelessWidget {
+  final String pfpImage;
+
   const ProfilePic({
     Key? key,
+    required this.pfpImage,
   }) : super(key: key);
 
   @override
@@ -16,7 +19,7 @@ class ProfilePic extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage("assets/images/Profile Image.png"),
+            backgroundImage: NetworkImage(pfpImage),
           ),
           Positioned(
             right: -16,

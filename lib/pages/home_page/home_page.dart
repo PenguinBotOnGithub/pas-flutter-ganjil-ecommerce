@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/controllers/home_controllers/home_controller.dart';
-import 'package:flutter_tugas_pas/pages/home_page/fragments/account_fragment.dart';
 import 'package:flutter_tugas_pas/pages/home_page/fragments/chat_fragment.dart';
 import 'package:flutter_tugas_pas/pages/home_page/fragments/feed_fragment/components/icon_btn_with_counter.dart';
 import 'package:flutter_tugas_pas/pages/home_page/fragments/feed_fragment/components/search_field.dart';
+import 'package:flutter_tugas_pas/pages/home_page/fragments/profile_fragment/profile_pages.dart';
 import 'package:flutter_tugas_pas/pages/home_page/fragments/wishlist_fragment.dart';
 import 'package:flutter_tugas_pas/pages/home_page/fragments/feed_fragment/feed_fragment.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
@@ -50,7 +50,7 @@ class HomePage extends GetView<HomeController> {
               FeedFragment(),
               WishlistFragment(),
               ChatFragment(),
-              AccountFragment()
+              ProfileFragment()
             ][controller.navIndex.value]),
       ),
       bottomNavigationBar: Obx(

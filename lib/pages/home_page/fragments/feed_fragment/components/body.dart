@@ -6,7 +6,6 @@ import 'package:flutter_tugas_pas/pages/home_page/fragments/feed_fragment/compon
 
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'discount_banner.dart';
-import 'header.dart';
 
 class Body extends StatelessWidget {
   final List<Product> products;
