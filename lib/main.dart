@@ -6,6 +6,7 @@ import 'package:flutter_tugas_pas/bindings/home_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/login_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/onboarding_bindings.dart';
 import 'package:flutter_tugas_pas/helpers/hive_manager.dart';
+import 'package:flutter_tugas_pas/models/cart_item.dart';
 import 'package:flutter_tugas_pas/pages/cart_page.dart';
 import 'package:flutter_tugas_pas/pages/detail_page.dart';
 import 'package:flutter_tugas_pas/pages/home_page/home_page.dart';
@@ -24,6 +25,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserAdapter());
   Hive.registerAdapter(ProductAdapter());
+  Hive.registerAdapter(CartItemAdapter());
   await HiveManager.init();
   runApp(const MainApp());
 }
