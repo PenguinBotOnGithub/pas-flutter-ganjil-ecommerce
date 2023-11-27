@@ -15,4 +15,9 @@ class CartController extends GetxController {
             .cast();
     products.forEach((e) => totalPrice.value += e.product.price);
   }
+
+  void onRemoveTap(int index) {
+    products.removeAt(index);
+    hm.getDataBox.put(hm.cartKey, products);
+  }
 }

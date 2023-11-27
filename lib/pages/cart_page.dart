@@ -19,28 +19,31 @@ class CartPage extends GetView<CartController> {
           style: TextStyle(color: mTitleColor),
         ),
       ),
-      body: ListView.builder(
-          itemCount: controller.products.length,
-          shrinkWrap: true,
-          itemBuilder: (context, count) => ListTile(
-                leading: SizedBox(
-                    width: getProportionateScreenWidth(80),
-                    child: Image.network(
-                      controller.products[count].product.thumbnail,
-                      fit: BoxFit.cover,
-                    )),
-                title: Text(controller.products[count].product.title),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                        "Price: \$${controller.products[count].product.price}"),
-                    Text("Amount: ${controller.products[count].amount}"),
-                  ],
-                ),
-                trailing:
-                    IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
-              )),
+      body: Obx(
+        () => ListView.builder(
+            itemCount: controller.products.length,
+            shrinkWrap: true,
+            itemBuilder: (context, count) => ListTile(
+                  leading: SizedBox(
+                      width: getProportionateScreenWidth(80),
+                      child: Image.network(
+                        controller.products[count].product.thumbnail,
+                        fit: BoxFit.cover,
+                      )),
+                  title: Text(controller.products[count].product.title),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                          "Price: \$${controller.products[count].product.price}"),
+                      Text("Amount: ${controller.products[count].amount}"),
+                    ],
+                  ),
+                  trailing: IconButton(
+                      onPressed: () => controller.onRemoveTap(count),
+                      icon: Icon(Icons.delete)),
+                )),
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
             border: Border(top: BorderSide(width: 0.5, color: mGreyColor))),
