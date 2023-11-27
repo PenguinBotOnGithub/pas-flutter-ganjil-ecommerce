@@ -4,9 +4,9 @@ import '../size_config.dart';
 
 class DefaultButtonCustomColor extends StatelessWidget {
   const DefaultButtonCustomColor(
-      {Key? key, this.text, this.color, this.press, this.borderRadius})
+      {Key? key, required this.text, this.color, this.press, this.borderRadius})
       : super(key: key);
-  final String? text;
+  final String text;
   final Color? color;
   final Function? press;
   final double? borderRadius;
@@ -25,7 +25,7 @@ class DefaultButtonCustomColor extends StatelessWidget {
         ),
         onPressed: press as void Function()?,
         child: Text(
-          text!,
+          text,
           style: TextStyle(
             fontSize: getProportionateScreenWidth(18),
             fontWeight: FontWeight.w600,

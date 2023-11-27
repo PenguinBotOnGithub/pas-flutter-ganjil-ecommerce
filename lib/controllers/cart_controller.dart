@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 class CartController extends GetxController {
   var hm = HiveManager();
   RxList<CartItem> products = <CartItem>[].obs;
+  RxInt totalPrice = 0.obs;
 
   @override
   onInit() {
@@ -12,5 +13,6 @@ class CartController extends GetxController {
     products.value =
         (hm.getDataBox.get(hm.cartKey, defaultValue: []) as List<dynamic>)
             .cast();
+    products.forEach((e) => totalPrice.value += e.product.price);
   }
 }

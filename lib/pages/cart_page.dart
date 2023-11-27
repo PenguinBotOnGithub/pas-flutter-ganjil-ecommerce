@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tugas_pas/controllers/cart_controller.dart';
+import 'package:flutter_tugas_pas/widgets/components/default_button_custom_color.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'package:get/get.dart';
@@ -29,10 +30,48 @@ class CartPage extends GetView<CartController> {
                       fit: BoxFit.cover,
                     )),
                 title: Text(controller.products[count].product.title),
-                subtitle: Text("Amount: ${controller.products[count].amount}"),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                        "Price: \$${controller.products[count].product.price}"),
+                    Text("Amount: ${controller.products[count].amount}"),
+                  ],
+                ),
                 trailing:
                     IconButton(onPressed: () {}, icon: Icon(Icons.delete)),
               )),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            border: Border(top: BorderSide(width: 0.5, color: mGreyColor))),
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        height: getProportionateScreenHeight(80),
+        child: Row(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Total Price",
+                  style: mTitleStyle16,
+                ),
+                Text(
+                  "\$${controller.totalPrice}",
+                  style: mStylePrice,
+                )
+              ],
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Expanded(
+                child: DefaultButtonCustomColor(
+              text: "Buy",
+              color: kPrimaryColor,
+            ))
+          ],
+        ),
+      ),
     );
   }
 }
