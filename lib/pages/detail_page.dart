@@ -170,9 +170,9 @@ class DetailPage extends GetView<DetailController> {
               Expanded(
                 child: DefaultButtonCustomColor(
                   borderRadius: 36,
-                  text: "Add To Cart",
+                  text: controller.actionButtonText.value,
                   color: kPrimaryColor,
-                  press: () {},
+                  press: controller.onActionButtonTap,
                 ),
               ),
             ],

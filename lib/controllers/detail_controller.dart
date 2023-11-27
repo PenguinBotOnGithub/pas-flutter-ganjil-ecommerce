@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_tugas_pas/helpers/hive_manager.dart';
+import 'package:flutter_tugas_pas/models/cart_item.dart';
 import 'package:flutter_tugas_pas/models/product.dart';
 import 'package:flutter_tugas_pas/models/user.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
@@ -16,12 +17,15 @@ class DetailController extends GetxController {
   Rx<LoadState> fetchLoad = LoadState.loading.obs;
   RxInt imageCarouselPage = 0.obs;
   RxList<Product> wishlist = <Product>[].obs;
+  RxList<CartItem> cart = <CartItem>[].obs;
 
   Rx<Product> product = Product.zero().obs;
   RxString error = "".obs;
   RxInt amount = 1.obs;
   var imagePageController = PageController();
+  RxString actionButtonText = "".obs;
   RxBool isInWishlist = false.obs;
+  RxBool isInCart = false.obs;
 
   void onAddTap() => amount.value++;
   void onReduceTap() =>
@@ -71,10 +75,41 @@ class DetailController extends GetxController {
     wishlist.value = (hm.getDataBox
             .get(hm.wishlistKey, defaultValue: <Product>[]) as List<dynamic>)
         .cast();
-    debugPrint(wishlist.toString());
     wishlist.forEach(
         (p) => p.id == product.value.id ? isInWishlist.value = true : null);
-    debugPrint(isInWishlist.value.toString());
+    cart.value =
+        (hm.getDataBox.get(hm.cartKey, defaultValue: []) as List<dynamic>)
+            .cast();
+    cart.forEach(
+        (e) => e.product.id == product.value.id ? isInCart.value = true : null);
+    if (isInCart.value) {
+      amount.value =
+          (cart.firstWhere((e) => e.product.id == product.value.id)).amount;
+      actionButtonText.value = "Remove From Cart";
+    } else {
+      actionButtonText.value = "Add To Cart";
+    }
+  }
+
+  void onActionButtonTap() {
+    if (isInCart.value) {
+      int i = 0;
+      for (i = 0; i < cart.length; i++) {
+        if (cart[i].product.id == product.value.id) {
+          break;
+        }
+      }
+      cart.removeAt(i);
+      hm.getDataBox.put(hm.cartKey, cart);
+      isInCart.value = false;
+      actionButtonText.value = "Add To Cart";
+    } else {
+      cart.add(CartItem(product: product.value, amount: amount.value));
+      hm.getDataBox.put(hm.cartKey, cart);
+      isInCart.value = true;
+      actionButtonText.value = "Remove From Cart";
+    }
+    debugPrint(cart.toString());
   }
 
   Future<Result<Product, String>> getProductInfo(int id) async {
