@@ -30,7 +30,7 @@ class HomePage extends GetView<HomeController> {
             padding: const EdgeInsets.all(10),
             child: IconBtnWithCounter(
               svgSrc: "assets/icons/Cart.svg",
-              press: () => {},
+              press: controller.onCartButtonTap,
             ),
           ),
           Padding(

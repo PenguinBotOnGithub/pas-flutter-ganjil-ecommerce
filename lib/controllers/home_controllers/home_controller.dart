@@ -18,6 +18,10 @@ class HomeController extends GetxController {
     navIndex.value = val;
   }
 
+  void onCartButtonTap() {
+    Get.toNamed("/cart");
+  }
+
   void onNotifButtonTap() {
     Get.toNamed("/notifications");
   }
