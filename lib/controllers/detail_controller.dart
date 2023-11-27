@@ -102,6 +102,7 @@ class DetailController extends GetxController {
       cart.removeAt(i);
       hm.getDataBox.put(hm.cartKey, cart);
       isInCart.value = false;
+      amount.value = 1;
       actionButtonText.value = "Add To Cart";
     } else {
       cart.add(CartItem(product: product.value, amount: amount.value));
