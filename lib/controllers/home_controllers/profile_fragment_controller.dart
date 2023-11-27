@@ -15,6 +15,6 @@ class ProfileFragmentController extends GetxController {
 
   void onLogoutTap() {
     hm.getDataBox.put(hm.loggedInUserKey, null);
-    Get.toNamed("/login");
+    Get.offNamed("/login");
   }
 }
