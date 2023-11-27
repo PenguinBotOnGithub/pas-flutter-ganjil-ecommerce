@@ -145,28 +145,30 @@ class DetailPage extends GetView<DetailController> {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: getProportionateScreenWidth(105),
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(36),
-                    border: Border.all(color: mGreyColor)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: controller.onReduceTap,
-                      icon: Icon(Icons.remove),
-                    ),
-                    Text("${controller.amount.value}"),
-                    IconButton(
-                        onPressed: controller.onAddTap, icon: Icon(Icons.add))
-                  ],
+              if (!controller.isInCart.value)
+                Container(
+                  width: getProportionateScreenWidth(105),
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(36),
+                      border: Border.all(color: mGreyColor)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: controller.onReduceTap,
+                        icon: Icon(Icons.remove),
+                      ),
+                      Text("${controller.amount.value}"),
+                      IconButton(
+                          onPressed: controller.onAddTap, icon: Icon(Icons.add))
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
+              if (!controller.isInCart.value)
+                SizedBox(
+                  width: 20,
+                ),
               Expanded(
                 child: DefaultButtonCustomColor(
                   borderRadius: 36,
