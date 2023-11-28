@@ -117,6 +117,12 @@ var mTitleStyleNameApps = GoogleFonts.inter(
   fontSize: 18,
 );
 
+// Style for error messages
+var mErrorTextStyle =
+    GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.normal);
+var mSubErrorTextStyle =
+    GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.normal);
+
 // Style for Discount Section
 var mMoreDiscountStyle = GoogleFonts.inter(
     fontSize: 12, fontWeight: FontWeight.w700, color: mBlueColor);
