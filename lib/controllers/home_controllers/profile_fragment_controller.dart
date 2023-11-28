@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class ProfileFragmentController extends GetxController {
   var hm = HiveManager();
-  late RxString userPfp = RxString("");
+  RxString userPfp = "".obs;
 
   @override
   void onInit() {
