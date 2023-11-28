@@ -55,7 +55,7 @@ class WishlistFragment extends GetView<WishlistFragmentController> {
                           IconButton(
                               onPressed: () => controller.onCartAdd(
                                   count, getProportionateScreenWidth(105)),
-                              icon: Icon(Icons.shopping_cart_checkout)),
+                              icon: Icon(Icons.add_shopping_cart)),
                           IconButton(
                               onPressed: () => controller.onRemoveTap(count),
                               icon: Icon(Icons.delete)),
