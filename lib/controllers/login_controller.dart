@@ -37,7 +37,9 @@ class LoginController extends GetxController {
     if (usernameController.text.trim().isEmpty ||
         passwordController.text.trim().isEmpty) {
       Get.closeAllSnackbars();
-      Get.snackbar("USER ERROR", "Username or password can not be empty");
+      Get.rawSnackbar(
+          title: "LOGIN ERROR",
+          message: "Username and passwords fields can not be empty");
       return;
     }
 
@@ -51,8 +53,8 @@ class LoginController extends GetxController {
           debugPrint("todo: Implement persistent login");
           debugPrint(user.toString());
           Get.closeAllSnackbars();
-          Get.snackbar("DEBUG", "Login success",
-              snackPosition: SnackPosition.BOTTOM);
+          /* todo: FIX bug where logging in without rememberMe = true
+             causes null user returned when retrieving user from Hive */
           if (rememberMe.value) {
             var hm = HiveManager();
             hm.getDataBox.put(hm.loggedInUserKey, user);
@@ -62,7 +64,7 @@ class LoginController extends GetxController {
       case Err(value: String errorMsg):
         {
           Get.closeAllSnackbars();
-          Get.snackbar("LOGIN ERROR", errorMsg);
+          Get.rawSnackbar(title: "LOGIN ERROR", message: errorMsg);
         }
     }
   }
@@ -77,7 +79,6 @@ class LoginController extends GetxController {
           }));
       return Ok(res);
     } catch (e) {
-      // print(e);
       debugPrint(e.toString());
       return Err(e as Exception);
     }

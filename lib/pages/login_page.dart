@@ -5,7 +5,6 @@ import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/controllers/login_controller.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 class LoginPage extends GetView<LoginController> {

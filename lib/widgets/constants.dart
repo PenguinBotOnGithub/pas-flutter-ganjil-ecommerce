@@ -19,6 +19,8 @@ const kColorYellow = Color(0xFFFFC654);
 const mBackgroundColor = Color(0xFFF7F6F4);
 const mBlueColor = Color(0xFF2C53B1);
 const mGreyColor = Color(0xFFCFCFCF);
+const mLightGreyColor = Color.fromARGB(255, 233, 233, 233);
+const mDarkGreyColor = Color.fromARGB(255, 184, 184, 184);
 const mTitleColor = Color(0xFF23374D);
 const mSubtitleColor = Color(0xFF808080);
 const mBorderColor = Color(0xFFE8E8F3);
@@ -35,6 +37,7 @@ const kPrimaryGradientColor = LinearGradient(
 const kTextColor = Color(0xFF757575);
 
 const kAnimationDuration = Duration(milliseconds: 200);
+const kAnimationDurationLong = Duration(milliseconds: 600);
 
 final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),
@@ -101,6 +104,12 @@ var mTitle = GoogleFonts.inter(
 var mTitle2 = GoogleFonts.inter(
     fontWeight: FontWeight.w600, color: mTitleColor, fontSize: 14);
 
+var mTitleStyletugas = GoogleFonts.inter(
+  fontWeight: FontWeight.bold,
+  color: mTitleColor,
+  fontSize: 12,
+);
+
 // Style for title Name
 var mTitleStyleNameApps = GoogleFonts.inter(
   fontWeight: FontWeight.bold,
@@ -108,11 +117,11 @@ var mTitleStyleNameApps = GoogleFonts.inter(
   fontSize: 18,
 );
 
-var mTitleStyletugas = GoogleFonts.inter(
-  fontWeight: FontWeight.bold,
-  color: mTitleColor,
-  fontSize: 12,
-);
+// Style for error messages
+var mErrorTextStyle =
+    GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.normal);
+var mSubErrorTextStyle =
+    GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.normal);
 
 // Style for Discount Section
 var mMoreDiscountStyle = GoogleFonts.inter(
@@ -153,6 +162,16 @@ var mTravlogContentStyle = GoogleFonts.inter(
     fontSize: 10, fontWeight: FontWeight.w500, color: mTitleColor);
 var mTravlogPlaceStyle = GoogleFonts.inter(
     fontSize: 10, fontWeight: FontWeight.w500, color: mBlueColor);
+
+// Style for Detail Section
+var mTitleStyleProductTitle = GoogleFonts.inter(
+    fontWeight: FontWeight.w600, color: mTitleColor, fontSize: 24);
+
+var mStyleDescription = GoogleFonts.inter(
+    fontWeight: FontWeight.w400, color: mGreyColor, fontSize: 16);
+
+var mStylePrice = GoogleFonts.inter(
+    fontWeight: FontWeight.w500, color: kPrimaryColor, fontSize: 20);
 
 class HexColor extends Color {
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));

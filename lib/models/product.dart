@@ -23,9 +23,9 @@ class Product {
   @HiveField(8)
   String category;
   @HiveField(9)
-  Uri thumbnail;
+  String thumbnail;
   @HiveField(10)
-  List<Uri> images;
+  List<String> images;
 
   Product(
       {required this.id,
@@ -40,22 +40,58 @@ class Product {
       required this.thumbnail,
       required this.images});
 
-  factory Product.fromJson(Map<String, dynamic> json) {
+  factory Product.zero() {
     return Product(
-        id: json["id"] as int,
-        title: json["title"] as String,
-        description: json["description"] as String,
-        price: json["price"] as int,
-        discountPercentage: json["discountPercentage"] as double,
-        rating: json["rating"] as double,
-        stock: json["stock"] as int,
-        brand: json["brand"] as String,
-        category: json["category"] as String,
-        thumbnail: Uri.parse(json["thumbnail"] as String),
-        images:
-            (json["images"] as List<String>).map((e) => Uri.parse(e)).toList());
+        id: 0,
+        title: "null",
+        description: "null",
+        price: 0,
+        discountPercentage: 0,
+        rating: 0,
+        stock: 0,
+        brand: "null",
+        category: "null",
+        thumbnail: "null",
+        images: [
+          "https://res.cloudinary.com/teepublic/image/private/s--HDuBTUyf--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1446147587/production/designs/2905_2.jpg"
+        ]);
   }
 
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+        id: _ifDoubleToInt(json["id"]),
+        title: json["title"] as String,
+        description: json["description"] as String,
+        price: _ifDoubleToInt(json["price"]),
+        discountPercentage: _ifIntToDouble(json["discountPercentage"]),
+        rating: _ifIntToDouble(json["rating"]),
+        stock: _ifDoubleToInt(json["stock"]),
+        brand: json["brand"] as String,
+        category: json["category"] as String,
+        thumbnail: json["thumbnail"] as String,
+        images:
+            (json["images"] as List<dynamic>).map((e) => e as String).toList());
+  }
+
+  // Workaround functions if Dart confuses int with double
+  // or vice versa and won't do implicit type casting
+  static double _ifIntToDouble(dynamic val) {
+    try {
+      return (val as double);
+    } catch (e) {
+      return (val as int).toDouble();
+    }
+  }
+
+  static int _ifDoubleToInt(dynamic val) {
+    try {
+      return (val as int);
+    } catch (e) {
+      return (val as double).round();
+    }
+  }
+
+  // For debugging purposes
   @override
   String toString() {
     return """
@@ -73,3 +109,24 @@ class Product {
     """;
   }
 }
+
+/* List<Product> demoProducts = [
+  Product(
+    id: 1,
+    images: [
+      "assets/images/Stik_ps4.png",
+    ],
+    colors: [
+      Colors.white,
+    ],
+    title: "Wireless Controller for PS4™",
+    price: 64.99,
+    description: description,
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+];
+
+const String description = "Wireless Controller for PS4";
+ */
