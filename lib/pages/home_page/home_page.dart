@@ -37,7 +37,6 @@ class HomePage extends GetView<HomeController> {
             padding: const EdgeInsets.all(10),
             child: IconBtnWithCounter(
               svgSrc: "assets/icons/Bell.svg",
-              numOfitem: 3,
               press: controller.onNotifButtonTap,
             ),
           ),
