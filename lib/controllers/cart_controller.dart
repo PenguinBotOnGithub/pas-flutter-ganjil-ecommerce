@@ -18,7 +18,7 @@ class CartController extends GetxController {
   }
 
   void onCheckoutTap() {
-    Get.toNamed("/payment");
+    Get.toNamed("/payment", arguments: totalPrice.value);
   }
 
   void calculateTotal() {

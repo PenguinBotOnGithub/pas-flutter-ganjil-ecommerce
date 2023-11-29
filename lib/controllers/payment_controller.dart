@@ -47,6 +47,13 @@ class PaymentController extends GetxController {
   late Rxn<PaymentMethod> methodType = Rxn();
   RxList<LabeledEnum> paymentMethods = <LabeledEnum>[].obs;
   Rxn<LabeledEnum> selectedMethod = Rxn();
+  RxInt totalPrice = 0.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    totalPrice.value = Get.arguments as int;
+  }
 
   void onDropdownSelect(PaymentMethod? val) {
     if (val == null) return;
@@ -78,4 +85,6 @@ class PaymentController extends GetxController {
 
     selectedMethod.value = val;
   }
+
+  void onCheckoutTap() {}
 }
