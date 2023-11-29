@@ -20,29 +20,56 @@ class CartPage extends GetView<CartController> {
         ),
       ),
       body: Obx(
-        () => ListView.builder(
-            itemCount: controller.products.length,
-            shrinkWrap: true,
-            itemBuilder: (context, count) => ListTile(
-                  leading: SizedBox(
-                      width: getProportionateScreenWidth(80),
-                      child: Image.network(
-                        controller.products[count].product.thumbnail,
-                        fit: BoxFit.cover,
-                      )),
-                  title: Text(controller.products[count].product.title),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                          "Price: \$${controller.products[count].product.price}"),
-                      Text("Amount: ${controller.products[count].amount}"),
-                    ],
-                  ),
-                  trailing: IconButton(
-                      onPressed: () => controller.onRemoveTap(count),
-                      icon: Icon(Icons.delete)),
-                )),
+        () => controller.products.isEmpty
+            ? Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.production_quantity_limits,
+                      color: kPrimaryColor,
+                      size: getProportionateScreenWidth(100),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Your cart is awfully empty",
+                      style: mErrorTextStyle,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Discover your dream products and add it here!",
+                      style: mSubErrorTextStyle,
+                    )
+                  ],
+                ),
+              )
+            : ListView.builder(
+                itemCount: controller.products.length,
+                shrinkWrap: true,
+                itemBuilder: (context, count) => ListTile(
+                      leading: SizedBox(
+                          width: getProportionateScreenWidth(80),
+                          child: Image.network(
+                            controller.products[count].product.thumbnail,
+                            fit: BoxFit.cover,
+                          )),
+                      title: Text(controller.products[count].product.title),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                              "Price: \$${controller.products[count].product.price}"),
+                          Text("Amount: ${controller.products[count].amount}"),
+                        ],
+                      ),
+                      trailing: IconButton(
+                          onPressed: () => controller.onRemoveTap(count),
+                          icon: Icon(Icons.delete)),
+                    )),
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
