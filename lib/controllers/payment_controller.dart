@@ -87,6 +87,12 @@ class PaymentController extends GetxController {
   }
 
   void onCheckoutTap() {
+    if (selectedMethod.value == null) {
+      Get.rawSnackbar(
+          title: "ERROR", message: "Please select a payment method");
+      return;
+    }
+
     Get.offNamed("/payment/process");
   }
 }
