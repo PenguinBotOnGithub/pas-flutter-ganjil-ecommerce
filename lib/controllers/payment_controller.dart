@@ -86,5 +86,7 @@ class PaymentController extends GetxController {
     selectedMethod.value = val;
   }
 
-  void onCheckoutTap() {}
+  void onCheckoutTap() {
+    Get.offNamed("/payment/process");
+  }
 }
