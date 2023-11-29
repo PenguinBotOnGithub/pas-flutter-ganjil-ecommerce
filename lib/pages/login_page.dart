@@ -83,11 +83,11 @@ class LoginPage extends GetView<LoginController> {
                           svgSuffixIcon: "assets/icons/Lock.svg",
                           controller: controller.passwordController),
                       SizedBox(
-                        height: getProportionateScreenHeight(20),
+                        height: getProportionateScreenHeight(5),
                       ),
                       Row(
                         children: [
-                          Obx(
+                          /*  Obx(
                             () => Checkbox(
                                 value: controller.rememberMe.value,
                                 onChanged: controller.handleRememberCheck),
@@ -97,7 +97,7 @@ class LoginPage extends GetView<LoginController> {
                             style: TextStyle(
                               color: mGreyColor,
                             ),
-                          ),
+                          ), */
                           Spacer(),
                           GestureDetector(
                             onTap: () {},
@@ -109,6 +109,9 @@ class LoginPage extends GetView<LoginController> {
                             ),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: getProportionateScreenHeight(20),
                       ),
                       DefaultButtonCustomColor(
                         color: kPrimaryColor,
