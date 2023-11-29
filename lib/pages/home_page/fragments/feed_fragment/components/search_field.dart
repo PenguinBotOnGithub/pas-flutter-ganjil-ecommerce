@@ -21,13 +21,13 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: SizeConfig.screenWidth * 0.6,
-      margin: EdgeInsets.symmetric(vertical: 15),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(
         color: mGreyColor.withOpacity(0.1),
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        style: TextStyle(color: mGreyColor),
+        style: const TextStyle(color: mGreyColor),
         onTap: onTap,
         onTapOutside: onTapOutside,
         focusNode: focus,
@@ -41,7 +41,7 @@ class SearchField extends StatelessWidget {
             enabledBorder: InputBorder.none,
             prefixIconColor: mGreyColor,
             hintText: "Search product",
-            prefixIcon: Icon(Icons.search)),
+            prefixIcon: const Icon(Icons.search)),
       ),
     );
   }

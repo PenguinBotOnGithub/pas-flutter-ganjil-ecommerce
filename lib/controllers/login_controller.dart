@@ -13,7 +13,6 @@ class LoginController extends GetxController {
   final passwordController = TextEditingController();
   final usernameFocus = FocusNode();
   final passwordFocus = FocusNode();
-  final rememberMe = false.obs;
 
   void onTapUsernameFocus() {
     passwordFocus.unfocus();
@@ -28,10 +27,6 @@ class LoginController extends GetxController {
   }
 
   void onTapOutsidePasswordFocus(e) => passwordFocus.unfocus();
-
-  void handleRememberCheck(bool? val) {
-    rememberMe.value = val!;
-  }
 
   void handeLogin() async {
     if (usernameController.text.trim().isEmpty ||
@@ -53,12 +48,8 @@ class LoginController extends GetxController {
           debugPrint("todo: Implement persistent login");
           debugPrint(user.toString());
           Get.closeAllSnackbars();
-          /* todo: FIX bug where logging in without rememberMe = true
-             causes null user returned when retrieving user from Hive */
-          if (rememberMe.value) {
-            var hm = HiveManager();
-            hm.getDataBox.put(hm.loggedInUserKey, user);
-          }
+          var hm = HiveManager();
+          hm.getDataBox.put(hm.loggedInUserKey, user);
           Get.offNamed("/home");
         }
       case Err(value: String errorMsg):

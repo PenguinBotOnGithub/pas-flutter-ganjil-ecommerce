@@ -18,12 +18,19 @@ class CartController extends GetxController {
   }
 
   void onCheckoutTap() {
+    if (products.isEmpty) {
+      Get.rawSnackbar(title: "ERROR", message: "No item(s) to process payment");
+      return;
+    }
+
     Get.toNamed("/payment", arguments: totalPrice.value);
   }
 
   void calculateTotal() {
     totalPrice.value = 0;
-    products.forEach((e) => totalPrice.value += e.product.price * e.amount);
+    for (var e in products) {
+      totalPrice.value += e.product.price * e.amount;
+    }
   }
 
   void onRemoveTap(int index) {

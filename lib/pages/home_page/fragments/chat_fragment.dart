@@ -17,6 +17,9 @@ class ChatFragment extends StatelessWidget {
             color: kPrimaryColor,
             size: getProportionateScreenWidth(100),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           Text(
             "No friends?",
             style: mErrorTextStyle,

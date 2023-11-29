@@ -13,41 +13,68 @@ class CartPage extends GetView<CartController> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: mGreyColor),
-        title: Text(
+        iconTheme: const IconThemeData(color: mGreyColor),
+        title: const Text(
           "Cart",
           style: TextStyle(color: mTitleColor),
         ),
       ),
       body: Obx(
-        () => ListView.builder(
-            itemCount: controller.products.length,
-            shrinkWrap: true,
-            itemBuilder: (context, count) => ListTile(
-                  leading: SizedBox(
-                      width: getProportionateScreenWidth(80),
-                      child: Image.network(
-                        controller.products[count].product.thumbnail,
-                        fit: BoxFit.cover,
-                      )),
-                  title: Text(controller.products[count].product.title),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                          "Price: \$${controller.products[count].product.price}"),
-                      Text("Amount: ${controller.products[count].amount}"),
-                    ],
-                  ),
-                  trailing: IconButton(
-                      onPressed: () => controller.onRemoveTap(count),
-                      icon: Icon(Icons.delete)),
-                )),
+        () => controller.products.isEmpty
+            ? Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.production_quantity_limits,
+                      color: kPrimaryColor,
+                      size: getProportionateScreenWidth(100),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Your cart is awfully empty",
+                      style: mErrorTextStyle,
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Discover your dream products and add it here!",
+                      style: mSubErrorTextStyle,
+                    )
+                  ],
+                ),
+              )
+            : ListView.builder(
+                itemCount: controller.products.length,
+                shrinkWrap: true,
+                itemBuilder: (context, count) => ListTile(
+                      leading: SizedBox(
+                          width: getProportionateScreenWidth(80),
+                          child: Image.network(
+                            controller.products[count].product.thumbnail,
+                            fit: BoxFit.cover,
+                          )),
+                      title: Text(controller.products[count].product.title),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                              "Price: \$${controller.products[count].product.price}"),
+                          Text("Amount: ${controller.products[count].amount}"),
+                        ],
+                      ),
+                      trailing: IconButton(
+                          onPressed: () => controller.onRemoveTap(count),
+                          icon: const Icon(Icons.delete)),
+                    )),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             border: Border(top: BorderSide(width: 0.5, color: mGreyColor))),
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         height: getProportionateScreenHeight(80),
         child: Row(
           children: [
@@ -66,7 +93,7 @@ class CartPage extends GetView<CartController> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Expanded(

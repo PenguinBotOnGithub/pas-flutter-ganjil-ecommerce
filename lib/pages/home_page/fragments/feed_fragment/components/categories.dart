@@ -5,6 +5,8 @@ import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/widgets/size_config.dart';
 
 class Categories extends StatelessWidget {
+  const Categories({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
@@ -61,7 +63,7 @@ class CategoryCard extends StatelessWidget {
               ),
               child: SvgPicture.asset(icon!),
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Text(text!, textAlign: TextAlign.center)
           ],
         ),

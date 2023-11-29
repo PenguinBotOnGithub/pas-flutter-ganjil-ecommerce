@@ -13,7 +13,7 @@ class FeedFragment extends GetView<FeedFragmentController> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Obx(() => switch (controller.loadState.value) {
-          LoadState.loading => Center(
+          LoadState.loading => const Center(
               child: CircularProgressIndicator(
                 color: kPrimaryColor,
               ),
@@ -29,7 +29,7 @@ class FeedFragment extends GetView<FeedFragmentController> {
                     Icons.error,
                     size: getProportionateScreenWidth(80),
                   ),
-                  Text("Sorry!, we have an encountered an error")
+                  const Text("Sorry!, we have an encountered an error")
                 ],
               ),
             ),

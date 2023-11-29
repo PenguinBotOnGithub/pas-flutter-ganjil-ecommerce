@@ -11,7 +11,7 @@ class OnboardingPage extends GetView<OnboardingController> {
   Widget onboardingContent({required String text, required String image}) {
     return Column(
       children: <Widget>[
-        Spacer(),
+        const Spacer(),
         Text(
           "ELECTOKO",
           style: TextStyle(
@@ -24,7 +24,7 @@ class OnboardingPage extends GetView<OnboardingController> {
           text,
           textAlign: TextAlign.center,
         ),
-        Spacer(
+        const Spacer(
           flex: 2,
         ),
         Image.asset(
@@ -62,14 +62,14 @@ class OnboardingPage extends GetView<OnboardingController> {
                 ),
                 child: Column(
                   children: <Widget>[
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
                         controller.onboardingData.length,
                         (index) => Obx(() => AnimatedContainer(
                               duration: kAnimationDuration,
-                              margin: EdgeInsets.only(right: 5),
+                              margin: const EdgeInsets.only(right: 5),
                               height: 6,
                               width: controller.currentPage.value == index
                                   ? 20
@@ -83,7 +83,7 @@ class OnboardingPage extends GetView<OnboardingController> {
                             )),
                       ),
                     ),
-                    Spacer(
+                    const Spacer(
                       flex: 3,
                     ),
                     SizedBox(
@@ -95,7 +95,7 @@ class OnboardingPage extends GetView<OnboardingController> {
                         press: controller.onLoginTap,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                   ],
                 ),
               ),

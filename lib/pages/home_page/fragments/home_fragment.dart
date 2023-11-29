@@ -5,6 +5,6 @@ class HomeFragment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Icon(Icons.home));
+    return const Center(child: Icon(Icons.home));
   }
 }

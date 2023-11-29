@@ -25,7 +25,7 @@ class WishlistFragment extends GetView<WishlistFragmentController> {
                     "Your wishlist is empty",
                     style: mErrorTextStyle,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -55,10 +55,10 @@ class WishlistFragment extends GetView<WishlistFragmentController> {
                           IconButton(
                               onPressed: () => controller.onCartAdd(
                                   count, getProportionateScreenWidth(105)),
-                              icon: Icon(Icons.add_shopping_cart)),
+                              icon: const Icon(Icons.add_shopping_cart)),
                           IconButton(
                               onPressed: () => controller.onRemoveTap(count),
-                              icon: Icon(Icons.delete)),
+                              icon: const Icon(Icons.delete)),
                         ],
                       ),
                     ),

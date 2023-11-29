@@ -11,10 +11,10 @@ class UnknownPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Unknown Route"),
+            const Text("Unknown Route"),
             ElevatedButton(
                 onPressed: () => Get.toNamed("/home"),
-                child: Text("Back to home")),
+                child: const Text("Back to home")),
           ],
         ),
       ),

@@ -27,18 +27,18 @@ class LoginPage extends GetView<LoginController> {
             child: Column(
               children: [
                 SimpleShadow(
+                  opacity: 0.5,
+                  color: kPrimaryColor,
+                  offset: const Offset(5, 5),
+                  sigma: 2,
                   child: Image.asset(
                     "assets/images/Login.png",
                     height: 186,
                     width: 200,
                   ),
-                  opacity: 0.5,
-                  color: kPrimaryColor,
-                  offset: Offset(5, 5),
-                  sigma: 2,
                 ),
-                SizedBox(height: 20),
-                Padding(
+                const SizedBox(height: 20),
+                const Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +56,7 @@ class LoginPage extends GetView<LoginController> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 34,
                 ),
                 Form(
@@ -83,11 +83,11 @@ class LoginPage extends GetView<LoginController> {
                           svgSuffixIcon: "assets/icons/Lock.svg",
                           controller: controller.passwordController),
                       SizedBox(
-                        height: getProportionateScreenHeight(20),
+                        height: getProportionateScreenHeight(5),
                       ),
                       Row(
                         children: [
-                          Obx(
+                          /*  Obx(
                             () => Checkbox(
                                 value: controller.rememberMe.value,
                                 onChanged: controller.handleRememberCheck),
@@ -97,11 +97,11 @@ class LoginPage extends GetView<LoginController> {
                             style: TextStyle(
                               color: mGreyColor,
                             ),
-                          ),
-                          Spacer(),
+                          ), */
+                          const Spacer(),
                           GestureDetector(
                             onTap: () {},
-                            child: Text(
+                            child: const Text(
                               "Forgot Password",
                               style: TextStyle(
                                 color: mGreyColor,
@@ -110,17 +110,20 @@ class LoginPage extends GetView<LoginController> {
                           ),
                         ],
                       ),
+                      SizedBox(
+                        height: getProportionateScreenHeight(20),
+                      ),
                       DefaultButtonCustomColor(
                         color: kPrimaryColor,
                         text: "Login",
                         press: controller.handeLogin,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 100,
                       ),
                       GestureDetector(
                         onTap: () {},
-                        child: Text(
+                        child: const Text(
                           "Don't have an account? Sign Up",
                           style: TextStyle(
                             color: mGreyColor,
