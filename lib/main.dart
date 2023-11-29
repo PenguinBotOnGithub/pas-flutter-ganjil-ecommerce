@@ -45,7 +45,7 @@ class MainApp extends StatelessWidget {
           useMaterial3: false,
           fontFamily: "SFProDisplay",
           scaffoldBackgroundColor: mBackgroundColor,
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
             color: mBackgroundColor,
             elevation: 0,
           )),
@@ -68,7 +68,7 @@ class MainApp extends StatelessWidget {
                     }
                   },
                   backgroundColor: mBackgroundColor,
-                  childWidget: Text(
+                  childWidget: const Text(
                     "ELECTOKO",
                     style: TextStyle(
                       color: kPrimaryColor,
@@ -78,28 +78,28 @@ class MainApp extends StatelessWidget {
                   ),
                 )),
         GetPage(
-            name: "/login", page: () => LoginPage(), binding: LoginBindings()),
-        GetPage(name: "/home", page: () => HomePage(), binding: HomeBindings()),
+            name: "/login", page: () => const LoginPage(), binding: LoginBindings()),
+        GetPage(name: "/home", page: () => const HomePage(), binding: HomeBindings()),
         GetPage(
             name: "/notifications",
-            page: () => NotificationsPage(),
+            page: () => const NotificationsPage(),
             binding: NotificationsBindings()),
         GetPage(
             name: "/onboarding",
-            page: () => OnboardingPage(),
+            page: () => const OnboardingPage(),
             binding: OnboardingBindings()),
         GetPage(
             name: "/detail",
-            page: () => DetailPage(),
+            page: () => const DetailPage(),
             binding: DetailBindings()),
-        GetPage(name: "/cart", page: () => CartPage(), binding: CartBindings()),
+        GetPage(name: "/cart", page: () => const CartPage(), binding: CartBindings()),
         GetPage(
             name: "/payment",
-            page: () => PaymentPage(),
+            page: () => const PaymentPage(),
             binding: PaymentBindings()),
         GetPage(
             name: "/payment/process",
-            page: () => FinishPage(),
+            page: () => const FinishPage(),
             binding: FinishBindings()),
       ],
     );

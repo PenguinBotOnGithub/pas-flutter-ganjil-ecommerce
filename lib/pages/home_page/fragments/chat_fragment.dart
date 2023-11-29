@@ -17,7 +17,7 @@ class ChatFragment extends StatelessWidget {
             color: kPrimaryColor,
             size: getProportionateScreenWidth(100),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(

@@ -21,10 +21,10 @@ class FinishPage extends GetView<FinishController> {
                     LoadState.loading => Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CircularProgressIndicator(
+                          const CircularProgressIndicator(
                             color: kPrimaryColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
@@ -41,7 +41,7 @@ class FinishPage extends GetView<FinishController> {
                             size: getProportionateScreenWidth(100),
                             color: kPrimaryColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
@@ -58,7 +58,7 @@ class FinishPage extends GetView<FinishController> {
                             color: kPrimaryColor,
                             size: getProportionateScreenWidth(100),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
@@ -72,10 +72,10 @@ class FinishPage extends GetView<FinishController> {
           ),
           bottomNavigationBar: controller.loadState.value != LoadState.loading
               ? Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       border: Border(
                           top: BorderSide(width: 0.5, color: mGreyColor))),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   height: getProportionateScreenHeight(80),
                   child: Row(
                     children: [

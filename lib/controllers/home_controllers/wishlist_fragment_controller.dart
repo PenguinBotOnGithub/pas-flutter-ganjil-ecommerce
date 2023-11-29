@@ -42,8 +42,8 @@ class WishlistFragmentController extends GetxController {
           () => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Enter the amount of items you want to add: "),
-              SizedBox(
+              const Text("Enter the amount of items you want to add: "),
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -57,10 +57,10 @@ class WishlistFragmentController extends GetxController {
                   children: [
                     IconButton(
                       onPressed: onReduceTap,
-                      icon: Icon(Icons.remove),
+                      icon: const Icon(Icons.remove),
                     ),
                     Text("${amount.value}"),
-                    IconButton(onPressed: onAddTap, icon: Icon(Icons.add))
+                    IconButton(onPressed: onAddTap, icon: const Icon(Icons.add))
                   ],
                 ),
               )

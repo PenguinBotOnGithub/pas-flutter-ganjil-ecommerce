@@ -13,7 +13,7 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
           Obx(
@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
               pfpImage: controller.userPfp.value,
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ProfileMenu(
             text: "My Account",
             icon: "assets/icons/User Icon.svg",

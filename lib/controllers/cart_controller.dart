@@ -28,7 +28,9 @@ class CartController extends GetxController {
 
   void calculateTotal() {
     totalPrice.value = 0;
-    products.forEach((e) => totalPrice.value += e.product.price * e.amount);
+    for (var e in products) {
+      totalPrice.value += e.product.price * e.amount;
+    }
   }
 
   void onRemoveTap(int index) {

@@ -13,8 +13,8 @@ class CartPage extends GetView<CartController> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: mGreyColor),
-        title: Text(
+        iconTheme: const IconThemeData(color: mGreyColor),
+        title: const Text(
           "Cart",
           style: TextStyle(color: mTitleColor),
         ),
@@ -30,14 +30,14 @@ class CartPage extends GetView<CartController> {
                       color: kPrimaryColor,
                       size: getProportionateScreenWidth(100),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
                       "Your cart is awfully empty",
                       style: mErrorTextStyle,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -68,13 +68,13 @@ class CartPage extends GetView<CartController> {
                       ),
                       trailing: IconButton(
                           onPressed: () => controller.onRemoveTap(count),
-                          icon: Icon(Icons.delete)),
+                          icon: const Icon(Icons.delete)),
                     )),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             border: Border(top: BorderSide(width: 0.5, color: mGreyColor))),
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         height: getProportionateScreenHeight(80),
         child: Row(
           children: [
@@ -93,7 +93,7 @@ class CartPage extends GetView<CartController> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Expanded(

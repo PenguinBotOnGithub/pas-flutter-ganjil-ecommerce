@@ -7,6 +7,8 @@ import 'package:flutter_tugas_pas/widgets/size_config.dart';
 import 'package:get/get.dart';
 
 class DetailPage extends GetView<DetailController> {
+  const DetailPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -21,9 +23,9 @@ class DetailPage extends GetView<DetailController> {
                     Icons.favorite,
                     color: controller.isInWishlist.value ? kColorRedSlow : null,
                   ))),
-          IconButton(onPressed: () {}, icon: Icon(Icons.share)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
         ],
-        iconTheme: IconThemeData(color: mGreyColor),
+        iconTheme: const IconThemeData(color: mGreyColor),
       ),
       body: SafeArea(
           child: ColoredBox(
@@ -60,7 +62,7 @@ class DetailPage extends GetView<DetailController> {
                     controller.product.value.images.length,
                     (index) => AnimatedContainer(
                       duration: kAnimationDuration,
-                      margin: EdgeInsets.only(right: 5),
+                      margin: const EdgeInsets.only(right: 5),
                       height: 6,
                       width:
                           controller.imageCarouselPage.value == index ? 20 : 6,
@@ -73,7 +75,7 @@ class DetailPage extends GetView<DetailController> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
@@ -94,21 +96,21 @@ class DetailPage extends GetView<DetailController> {
 
   Widget buildProductInfo() {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: mBackgroundColor,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(40), topRight: Radius.circular(40))),
-      padding: EdgeInsets.only(left: 12, right: 12, top: 22, bottom: 8),
+      padding: const EdgeInsets.only(left: 12, right: 12, top: 22, bottom: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Text(
+              const Text(
                 "FREE SHIPPING",
                 style: TextStyle(color: mGreyColor),
               ),
-              Spacer(),
+              const Spacer(),
               Icon(
                 Icons.star,
                 color: kColorYellow,
@@ -121,7 +123,7 @@ class DetailPage extends GetView<DetailController> {
             children: [
               Text(controller.product.value.title,
                   style: mTitleStyleProductTitle),
-              Spacer()
+              const Spacer()
             ],
           ),
           Expanded(
@@ -136,10 +138,10 @@ class DetailPage extends GetView<DetailController> {
                 "\$${controller.product.value.price}",
                 style: mStylePrice,
               ),
-              Spacer(),
+              const Spacer(),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Row(
@@ -157,16 +159,16 @@ class DetailPage extends GetView<DetailController> {
                     children: [
                       IconButton(
                         onPressed: controller.onReduceTap,
-                        icon: Icon(Icons.remove),
+                        icon: const Icon(Icons.remove),
                       ),
                       Text("${controller.amount.value}"),
                       IconButton(
-                          onPressed: controller.onAddTap, icon: Icon(Icons.add))
+                          onPressed: controller.onAddTap, icon: const Icon(Icons.add))
                     ],
                   ),
                 ),
               if (!controller.isInCart.value)
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
               Expanded(
@@ -192,15 +194,15 @@ class DetailPage extends GetView<DetailController> {
         itemBuilder: (context, count) {
           var imageSize = getProportionateScreenWidth(80);
           return Container(
-            margin: EdgeInsets.symmetric(horizontal: 4),
+            margin: const EdgeInsets.symmetric(horizontal: 4),
             clipBehavior: Clip.antiAlias,
             width: imageSize,
             height: imageSize,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(22)),
             ),
             foregroundDecoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(22)),
+                borderRadius: const BorderRadius.all(Radius.circular(22)),
                 border: Border.all(
                     width: 2,
                     color: controller.imageCarouselPage.value == count
@@ -225,7 +227,7 @@ class DetailPage extends GetView<DetailController> {
   }
 
   Widget buildLoadingPage() {
-    return Center(
+    return const Center(
       child: CircularProgressIndicator(
         color: kPrimaryColor,
       ),

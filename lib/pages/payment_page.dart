@@ -13,8 +13,8 @@ class PaymentPage extends GetView<PaymentController> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: mGreyColor),
-        title: Text(
+        iconTheme: const IconThemeData(color: mGreyColor),
+        title: const Text(
           "Choose a payment method",
           style: TextStyle(color: mTitleColor),
         ),
@@ -22,7 +22,7 @@ class PaymentPage extends GetView<PaymentController> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             DropdownMenu(
@@ -32,7 +32,7 @@ class PaymentPage extends GetView<PaymentController> {
                 dropdownMenuEntries: PaymentMethod.values
                     .map((e) => DropdownMenuEntry(value: e, label: e.label))
                     .toList()),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Obx(() => ListView.builder(
@@ -57,9 +57,9 @@ class PaymentPage extends GetView<PaymentController> {
         ),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             border: Border(top: BorderSide(width: 0.5, color: mGreyColor))),
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         height: getProportionateScreenHeight(80),
         child: Row(
           children: [
@@ -78,7 +78,7 @@ class PaymentPage extends GetView<PaymentController> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Expanded(

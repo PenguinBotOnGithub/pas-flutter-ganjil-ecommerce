@@ -82,19 +82,19 @@ class StyledTextField extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50), // Border radius 50
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: kPrimaryColor,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50), // Border radius 50
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: kPrimaryColor,
           ),
         ),
         filled: true,
         fillColor: Colors.white, // Ganti warna latar belakang
-        contentPadding: EdgeInsets.only(left: 25, right: 25),
+        contentPadding: const EdgeInsets.only(left: 25, right: 25),
       ),
     );
   }
@@ -135,19 +135,19 @@ class _StyledTextFormField extends StyledTextField {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50), // Border radius 50
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: kPrimaryColor,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(50), // Border radius 50
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: kPrimaryColor,
           ),
         ),
         filled: true,
         fillColor: Colors.white, // Ganti warna latar belakang
-        contentPadding: EdgeInsets.only(left: 25, right: 25),
+        contentPadding: const EdgeInsets.only(left: 25, right: 25),
       ),
     );
   }

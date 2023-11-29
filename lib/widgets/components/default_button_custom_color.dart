@@ -18,9 +18,9 @@ class DefaultButtonCustomColor extends StatelessWidget {
       height: getProportionateScreenHeight(56),
       child: TextButton(
         style: TextButton.styleFrom(
+          foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius ?? 20)),
-          primary: Colors.white,
           backgroundColor: color,
         ),
         onPressed: press as void Function()?,

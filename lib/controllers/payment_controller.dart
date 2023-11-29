@@ -11,6 +11,7 @@ enum PaymentMethod implements LabeledEnum {
   physical("Cash");
 
   const PaymentMethod(this.label);
+  @override
   final String label;
 }
 
@@ -19,6 +20,7 @@ enum CashMethod implements LabeledEnum {
   alfamart("Alfamart");
 
   const CashMethod(this.label);
+  @override
   final String label;
 }
 
@@ -30,6 +32,7 @@ enum CardMethod implements LabeledEnum {
   permata("Bank Permata");
 
   const CardMethod(this.label);
+  @override
   final String label;
 }
 
@@ -40,6 +43,7 @@ enum EwalletMethod implements LabeledEnum {
   linkaja("LinkAja");
 
   const EwalletMethod(this.label);
+  @override
   final String label;
 }
 
@@ -77,7 +81,6 @@ class PaymentController extends GetxController {
           paymentMethods.addAll(CashMethod.values.map((e) => e).toList());
         }
     }
-    ;
   }
 
   void onMethodRadioSelect(LabeledEnum? val) {

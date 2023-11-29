@@ -75,13 +75,15 @@ class DetailController extends GetxController {
     wishlist.value = (hm.getDataBox
             .get(hm.wishlistKey, defaultValue: <Product>[]) as List<dynamic>)
         .cast();
-    wishlist.forEach(
-        (p) => p.id == product.value.id ? isInWishlist.value = true : null);
+    for (var p in wishlist) {
+      p.id == product.value.id ? isInWishlist.value = true : null;
+    }
     cart.value =
         (hm.getDataBox.get(hm.cartKey, defaultValue: []) as List<dynamic>)
             .cast();
-    cart.forEach(
-        (e) => e.product.id == product.value.id ? isInCart.value = true : null);
+    for (var e in cart) {
+      e.product.id == product.value.id ? isInCart.value = true : null;
+    }
     if (isInCart.value) {
       amount.value =
           (cart.firstWhere((e) => e.product.id == product.value.id)).amount;

@@ -44,12 +44,12 @@ class HomePage extends GetView<HomeController> {
       ),
       body: Obx(
         () => AnimatedSwitcher(
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             child: [
-              FeedFragment(),
-              WishlistFragment(),
-              ChatFragment(),
-              ProfileFragment()
+              const FeedFragment(),
+              const WishlistFragment(),
+              const ChatFragment(),
+              const ProfileFragment()
             ][controller.navIndex.value]),
       ),
       bottomNavigationBar: Obx(
@@ -58,7 +58,7 @@ class HomePage extends GetView<HomeController> {
           selectedItemColor: kPrimaryColor,
           currentIndex: controller.navIndex.value,
           onTap: controller.onNavTap,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.favorite), label: "Wishlist"),

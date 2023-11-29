@@ -9,9 +9,9 @@ class NotificationsPage extends GetView<NotificationsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Notifications"),
+        title: const Text("Notifications"),
       ),
-      body: Center(
+      body: const Center(
         child: Icon(Icons.notifications),
       ),
     );
