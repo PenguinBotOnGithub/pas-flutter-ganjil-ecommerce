@@ -26,7 +26,7 @@ class HomeController extends GetxController {
   }
 
   void onNotifButtonTap() {
-    Get.toNamed("/notifications");
+    // Get.toNamed("/notifications");
   }
 
   void onSearchTap() {
