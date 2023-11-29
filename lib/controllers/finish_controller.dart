@@ -35,7 +35,7 @@ class FinishController extends GetxController {
       case LoadState.complete:
         {
           hm.getDataBox.put(hm.cartKey, <CartItem>[]);
-          Get.offNamed("/home");
+          Get.offAllNamed("/home");
           Get.rawSnackbar(title: "INFORMATION", message: "Payment successful");
         }
       case LoadState.error:
