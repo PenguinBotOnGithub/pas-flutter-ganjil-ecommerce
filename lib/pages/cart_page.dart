@@ -58,9 +58,11 @@ class CartPage extends GetView<CartController> {
                   "Total Price",
                   style: mTitleStyle16,
                 ),
-                Text(
-                  "\$${controller.totalPrice}",
-                  style: mStylePrice,
+                Obx(
+                  () => Text(
+                    "\$${controller.totalPrice}",
+                    style: mStylePrice,
+                  ),
                 )
               ],
             ),
@@ -69,8 +71,9 @@ class CartPage extends GetView<CartController> {
             ),
             Expanded(
                 child: DefaultButtonCustomColor(
-              text: "Buy",
+              text: "Checkout",
               color: kPrimaryColor,
+              press: controller.onCheckoutTap,
             ))
           ],
         ),
