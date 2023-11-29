@@ -73,6 +73,7 @@ class CartPage extends GetView<CartController> {
                 child: DefaultButtonCustomColor(
               text: "Checkout",
               color: kPrimaryColor,
+              press: controller.onCheckoutTap,
             ))
           ],
         ),

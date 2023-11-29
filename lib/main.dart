@@ -5,6 +5,7 @@ import 'package:flutter_tugas_pas/bindings/detail_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/home_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/login_bindings.dart';
 import 'package:flutter_tugas_pas/bindings/onboarding_bindings.dart';
+import 'package:flutter_tugas_pas/bindings/payment_bindings.dart';
 import 'package:flutter_tugas_pas/helpers/hive_manager.dart';
 import 'package:flutter_tugas_pas/models/cart_item.dart';
 import 'package:flutter_tugas_pas/pages/cart_page.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_tugas_pas/pages/detail_page.dart';
 import 'package:flutter_tugas_pas/pages/home_page/home_page.dart';
 import 'package:flutter_tugas_pas/pages/login_page.dart';
 import 'package:flutter_tugas_pas/pages/onboarding_page.dart';
+import 'package:flutter_tugas_pas/pages/payment_page.dart';
 import 'package:flutter_tugas_pas/widgets/constants.dart';
 import 'package:flutter_tugas_pas/bindings/notifications_bindings.dart';
 import 'package:flutter_tugas_pas/models/product.dart';
@@ -88,7 +90,11 @@ class MainApp extends StatelessWidget {
             name: "/detail",
             page: () => DetailPage(),
             binding: DetailBindings()),
-        GetPage(name: "/cart", page: () => CartPage(), binding: CartBindings())
+        GetPage(name: "/cart", page: () => CartPage(), binding: CartBindings()),
+        GetPage(
+            name: "/payment",
+            page: () => PaymentPage(),
+            binding: PaymentBindings()),
       ],
     );
   }

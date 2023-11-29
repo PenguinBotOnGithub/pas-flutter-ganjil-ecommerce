@@ -17,6 +17,10 @@ class CartController extends GetxController {
     calculateTotal();
   }
 
+  void onCheckoutTap() {
+    Get.toNamed("/payment");
+  }
+
   void calculateTotal() {
     totalPrice.value = 0;
     products.forEach((e) => totalPrice.value += e.product.price * e.amount);
