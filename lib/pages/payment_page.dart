@@ -83,7 +83,7 @@ class PaymentPage extends GetView<PaymentController> {
             ),
             Expanded(
                 child: DefaultButtonCustomColor(
-              text: "Checkout",
+              text: "Pay",
               color: kPrimaryColor,
               press: controller.onCheckoutTap,
             ))
